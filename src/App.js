@@ -1,8 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Amplify from 'aws-amplify';
+import aws_exports from './aws-exports';
 function App() {
+  Amplify.configure(aws_exports);
   return (
     <div className="App">
       <header className="App-header">
