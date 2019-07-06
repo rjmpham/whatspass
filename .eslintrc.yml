@@ -13,4 +13,4 @@ parserOptions:
 plugins:
     - react
 rules:
-    "indent":["error",4]
+    "indent": 2
