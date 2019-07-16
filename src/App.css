@@ -1,8 +1,10 @@
 .MainTitle {
   text-align: center;
-  margin-bottom: 10%;
+  margin-top: 0%;
+  margin-bottom: 4%;
   margin-left: 0%;
   margin-right: 0%;
+  font-size: 20px;
 }
 
 .MainPage {
@@ -11,7 +13,16 @@
 
 .TitleButtons {
   text-align: center;
-  margin: 0%;
+  margin: 5%;
+}
+
+.ReplyBox { 
+    margin-top: 1cm;
+    margin-left: 40%;
+    margin-right: 40%;
+    text-align: center;
+    border: #282c34;
+    background-color: rgb(207, 204, 201);
 }
 
 .ScrollingText {
@@ -20,7 +31,7 @@
     margin-right: 20%;
 }
 .Divider{
-    margin: 10%
+    margin: 5%
 }
 
 .App-logo {

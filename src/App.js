@@ -32,24 +32,32 @@ function App(){
     return (
         
         <div className="MainPage">
-            <div className="MainTitle">
-                What's in a password?
-            </div> 
-            <div className="TitleButtons">
-                <MuiThemeProvider theme = {defTheme}>
-                    <Button color="secondary" size="lg">Weak</Button>{' '}
-                    <Button color="secondary" size="lg">Medium</Button>{' '}
-                    <Button color="primary" size="lg">Strong</Button>{' || '}
-                    <Button color="defult" size="lg">Random</Button>
-                </MuiThemeProvider> 
+            <div className="PasswordSection">
+
+                <div className="MainTitle">
+                    <h1>What's in a password?</h1>
+                </div> 
+                <div className="TitleButtons">
+                    <MuiThemeProvider theme = {defTheme}>
+                        <Button color="secondary" size="lg">Weak</Button>{' '}
+                        <Button color="secondary" size="lg">Medium</Button>{' '}
+                        <Button color="primary" size="lg">Strong</Button>{' || '}
+                        <Button color="defult" size="lg">Random</Button>
+                    </MuiThemeProvider> 
+                </div>
+                <div className="ReplyBox">This is a password box</div>
             </div>
-            <div className="ReplyBox"></div>
-            <div className="Divider"><Divider variant="middle" /></div> 
-            <div className= "ScrollingText">
-                
-                <h1>Lorem Ipsum</h1>
-                <Lorem />
+            <div className="ExplainSection">
+                <div className="Divider"><Divider variant="middle" /></div> 
+                <div className= "ScrollingText">
+                    
+                    <h1>Lorem Ipsum</h1>
+                    <Lorem />
+                    <Lorem />
+                </div>
             </div>
+
+
 
         </div>
     );
