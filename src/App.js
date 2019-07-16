@@ -1,10 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+
+//material ui for buttons
 // eslint-disable-next-line no-unused-vars
 import { makeStyles, MuiThemeProvider} from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
-import yellow from '@material-ui/core/colors/yellow';
+
 import { createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import './App.css';
@@ -22,6 +25,10 @@ function App(){
             error: red,
         },
     });
+
+    // for testing
+    var Lorem = require('react-lorem-component');
+
     return (
         
         <div className="MainPage">
@@ -36,7 +43,13 @@ function App(){
                     <Button color="defult" size="lg">Random</Button>
                 </MuiThemeProvider> 
             </div>
-            <div classname="replyBox"></div>
+            <div className="ReplyBox"></div>
+            <div className="Divider"><Divider variant="middle" /></div> 
+            <div className= "ScrollingText">
+                
+                <h1>Lorem Ipsum</h1>
+                <Lorem />
+            </div>
 
         </div>
     );

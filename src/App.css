@@ -1,6 +1,8 @@
 .MainTitle {
   text-align: center;
   margin-bottom: 10%;
+  margin-left: 0%;
+  margin-right: 0%;
 }
 
 .MainPage {
@@ -9,7 +11,16 @@
 
 .TitleButtons {
   text-align: center;
-  margin: auto;
+  margin: 0%;
+}
+
+.ScrollingText {
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.Divider{
+    margin: 10%
 }
 
 .App-logo {
