@@ -1,3 +1,11 @@
+.MainPage {
+    margin-top: 10%;
+}
+
+.ExplainSection {
+    background-color: azure;
+}
+
 .MainTitle {
   text-align: center;
   margin-top: 0%;
@@ -5,10 +13,6 @@
   margin-left: 0%;
   margin-right: 0%;
   font-size: 20px;
-}
-
-.MainPage {
-    margin-top: 10%;
 }
 
 .TitleButtons {

@@ -41,7 +41,7 @@ function App(){
                     <MuiThemeProvider theme = {defTheme}>
                         <Button color="secondary" size="lg">Weak</Button>{' '}
                         <Button color="secondary" size="lg">Medium</Button>{' '}
-                        <Button color="primary" size="lg">Strong</Button>{' || '}
+                        <Button color="primary" size="lg">Strong</Button>{'   ||   '}
                         <Button color="defult" size="lg">Random</Button>
                     </MuiThemeProvider> 
                 </div>
