@@ -15,13 +15,9 @@
   font-size: 20px;
 }
 
-.TitleButtons {
+.TitleButtonsBar {
   text-align: center;
   margin: 5%;
-}
-
-.RandomBut {
-    color: rgb(167, 54, 54);
 }
 
 .ReplyBox { 

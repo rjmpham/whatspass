@@ -40,34 +40,32 @@ function App(){
             error: red,
         },
     });
-    // defines 
-    const useStyles = makeStyles(theme => ({
-        root: {
-            background: theme.background,
-            border: 0,
-            fontSize: 16,
-            borderRadius: 3,
-            boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-            color: 'white',
-            height: 48,
-            padding: '0 30px',
-        },
-    }));
 
-    function handelWeak(){
-        display = "Pasword1!";
+
+    // eslint-disable-next-line no-unused-vars
+    class DisplayBox extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                display:null,
+            };
+        }
+ 
+        render(){
+            return(
+                <div className="ReplyBox">
+                    {this.props.display}
+                </div>
+            );
+        }
     }
-    function handelMedium(){
-        display = "two)%Seperated55";
+
+    function renderDisplayBox(i) {
+        return <DisplayBox display={i} />;
     }
-    function handelStrong(){
-        display = "92Longer($Pref1xed3373";
-    }
-    function handelRandom(){
-        display = "0ih3erf(IJcfgyumsyt";
-    }       
+
     // for testing
-    var display = "This is a password box";
+    // eslint-disable-next-line no-unused-vars
     var Lorem = require('react-lorem-component');
 
     return (
@@ -78,17 +76,37 @@ function App(){
                 <div className="MainTitle">
                     <h1>What's in a password?</h1>
                 </div> 
-                <div className="TitleButtons">
+                <div className="TitleButtonsBar">
                     <MuiThemeProvider theme = {defTheme}>
-                        <Button color="secondary" onClick= { handelWeak() }>Weak</Button>{' '}
-                        <Button color="primary" onClick={ handelMedium() }>Medium</Button>{' '}
+                        <Button 
+                            color="secondary" 
+                            onClick= {()=>{renderDisplayBox('Password1!');}}
+                        >
+                            Weak
+                        </Button>{' '}
+                        <Button 
+                            color="primary" 
+                            onClick= {()=>{renderDisplayBox('Password1!');}}
+                        >
+                            Medium
+                        </Button>{' '}
                         <MuiThemeProvider theme = {secondTheme}> 
-                            <Button color="primary" onClick={ handelStrong() }>Strong</Button>{'   ||   '}
-                            <Button color="secondary" className="RandomBut" onClick={ handelRandom() }>Random</Button>
+                            <Button 
+                                color="primary" 
+                                onClick= {()=>{renderDisplayBox('Password1!');}}
+                            >
+                                Strong
+                            </Button>{'   ||   '}
+                            <Button 
+                                color="secondary" 
+                                onClick= {()=>{renderDisplayBox('Password1!');}}
+                            >
+                                Random
+                            </Button>
                         </MuiThemeProvider>
                     </MuiThemeProvider> 
                 </div>
-                <div className="ReplyBox">{display}</div>
+                <DisplayBox display='This is a password box'/>
             </div>
             <div className="ExplainSection">
                 <div className="Divider"><Divider variant="middle" /></div> 
@@ -99,9 +117,6 @@ function App(){
                     <Lorem />
                 </div>
             </div>
-
-
-
         </div>
     );
 }
