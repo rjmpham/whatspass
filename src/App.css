@@ -20,6 +20,10 @@
   margin: 5%;
 }
 
+.RandomBut {
+    color: rgb(167, 54, 54);
+}
+
 .ReplyBox { 
     margin-top: 1cm;
     margin-left: 40%;
@@ -54,7 +58,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+}   
 
 .App-link {
   color: #61dafb;
