@@ -69,7 +69,11 @@ function App(){
                         </Button>{'   ||   '}
                         <Button 
                             color="secondary" 
-                            onClick= {()=>{setDisplay('Password4!');}}
+                            onClick= {()=>{
+                                var crypto = require("crypto");
+                                var id = crypto.randomBytes(12).toString('hex');
+                                setDisplay(id);
+                            }}
                         >
                             Random
                         </Button>
