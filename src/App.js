@@ -31,7 +31,7 @@ function App(){
             error: red,
         },
     });
-    const secondTheme = createMuiTheme({
+    const defThemePlus = createMuiTheme({
         palette: {
             warning: red,
             primary: green,
@@ -60,7 +60,7 @@ function App(){
                     >
                         Medium
                     </Button>{' '}
-                    <MuiThemeProvider theme = {secondTheme}> 
+                    <MuiThemeProvider theme = {defThemePlus}> 
                         <Button 
                             color="primary" 
                             onClick= {()=>{setDisplay('Password3!');}}
