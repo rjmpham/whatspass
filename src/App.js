@@ -70,8 +70,14 @@ function App(){
                         <Button 
                             color="secondary" 
                             onClick= {()=>{
-                                var crypto = require("crypto");
-                                var id = crypto.randomBytes(12).toString('hex');
+                                var crypto = require("crypto-random-string");
+                                var rn = require('random-number');
+                                var randyOptions = {
+                                    min:  11,
+                                    max:  14,
+                                    integer: true
+                                }
+                                var id = crypto({length:rn(randyOptions), type:'base64'});
                                 setDisplay(id);
                             }}
                         >
