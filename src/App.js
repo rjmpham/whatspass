@@ -69,7 +69,17 @@ function App(){
                         </Button>{'   ||   '}
                         <Button 
                             color="secondary" 
-                            onClick= {()=>{setDisplay('Password4!');}}
+                            onClick= {()=>{
+                                var crypto = require("crypto-random-string");
+                                var rn = require('random-number');
+                                var randyOptions = {
+                                    min:  11,
+                                    max:  14,
+                                    integer: true
+                                }
+                                var id = crypto({length:rn(randyOptions), type:'base64'});
+                                setDisplay(id);
+                            }}
                         >
                             Random
                         </Button>
