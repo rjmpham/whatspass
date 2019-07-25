@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 //material ui for buttons
 // eslint-disable-next-line no-unused-vars
@@ -11,7 +11,6 @@ import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
 import yellow from '@material-ui/core/colors/yellow';
 import cyan from '@material-ui/core/colors/cyan';
-
 
 import { createMuiTheme } from '@material-ui/core/styles';
 
@@ -43,26 +42,47 @@ function App(){
 
 
     // eslint-disable-next-line no-unused-vars
-    class DisplayBox extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                display:null,
-            };
-        }
- 
-        render(){
-            return(
+    function DisplayBox() {
+        const [display,setDisplay] = useState('this is a password box');
+
+        return(
+            <div className="TitleButtonsBar">
+                <MuiThemeProvider theme = {defTheme}>
+                    <Button 
+                        color="secondary" 
+                        onClick= {()=>{setDisplay('Password1!');}}
+                    >
+                        Weak
+                    </Button>{' '}
+                    <Button 
+                        color="primary" 
+                        onClick= {()=>{setDisplay('Password2!');}}
+                    >
+                        Medium
+                    </Button>{' '}
+                    <MuiThemeProvider theme = {secondTheme}> 
+                        <Button 
+                            color="primary" 
+                            onClick= {()=>{setDisplay('Password3!');}}
+                        >
+                            Strong
+                        </Button>{'   ||   '}
+                        <Button 
+                            color="secondary" 
+                            onClick= {()=>{setDisplay('Password4!');}}
+                        >
+                            Random
+                        </Button>
+                    </MuiThemeProvider>
+                </MuiThemeProvider> 
                 <div className="ReplyBox">
-                    {this.props.display}
+                    {display}
                 </div>
-            );
-        }
+            </div>
+        );
     }
 
-    function renderDisplayBox(i) {
-        return <DisplayBox display={i} />;
-    }
+
 
     // for testing
     // eslint-disable-next-line no-unused-vars
@@ -75,44 +95,16 @@ function App(){
 
                 <div className="MainTitle">
                     <h1>What's in a password?</h1>
-                </div> 
-                <div className="TitleButtonsBar">
-                    <MuiThemeProvider theme = {defTheme}>
-                        <Button 
-                            color="secondary" 
-                            onClick= {()=>{renderDisplayBox('Password1!');}}
-                        >
-                            Weak
-                        </Button>{' '}
-                        <Button 
-                            color="primary" 
-                            onClick= {()=>{renderDisplayBox('Password1!');}}
-                        >
-                            Medium
-                        </Button>{' '}
-                        <MuiThemeProvider theme = {secondTheme}> 
-                            <Button 
-                                color="primary" 
-                                onClick= {()=>{renderDisplayBox('Password1!');}}
-                            >
-                                Strong
-                            </Button>{'   ||   '}
-                            <Button 
-                                color="secondary" 
-                                onClick= {()=>{renderDisplayBox('Password1!');}}
-                            >
-                                Random
-                            </Button>
-                        </MuiThemeProvider>
-                    </MuiThemeProvider> 
                 </div>
-                <DisplayBox display='This is a password box'/>
+                <DisplayBox/>
             </div>
             <div className="ExplainSection">
                 <div className="Divider"><Divider variant="middle" /></div> 
                 <div className= "ScrollingText">
                     
                     <h1>Lorem Ipsum</h1>
+                    <Lorem />
+                    <Lorem />
                     <Lorem />
                     <Lorem />
                 </div>
