@@ -50,36 +50,26 @@ function App(){
                 <MuiThemeProvider theme = {defTheme}>
                     <Button 
                         color="secondary" 
-                        onClick= {()=>{setDisplay('Password1!');}}
+                        onClick= {()=>{setDisplay(ButtonW());}}
                     >
                         Weak
                     </Button>{' '}
                     <Button 
                         color="primary" 
-                        onClick= {()=>{setDisplay('Password2!');}}
+                        onClick= {()=>{setDisplay(ButtonM());}}
                     >
                         Medium
                     </Button>{' '}
                     <MuiThemeProvider theme = {defThemePlus}> 
                         <Button 
                             color="primary" 
-                            onClick= {()=>{setDisplay('Password3!');}}
+                            onClick= {()=>{setDisplay(ButtonS());}}
                         >
                             Strong
                         </Button>{'   ||   '}
                         <Button 
                             color="secondary" 
-                            onClick= {()=>{
-                                var crypto = require("crypto-random-string");
-                                var rn = require('random-number');
-                                var randyOptions = {
-                                    min:  11,
-                                    max:  14,
-                                    integer: true
-                                }
-                                var id = crypto({length:rn(randyOptions), type:'base64'});
-                                setDisplay(id);
-                            }}
+                            onClick= {()=>{setDisplay(ButtonR());}}
                         >
                             Random
                         </Button>
@@ -92,7 +82,37 @@ function App(){
         );
     }
 
+    function ButtonW(){
+        return 'Password1!';
+    }
 
+    function ButtonM(){
+        return 'Password2!';
+    }    
+
+    function ButtonS(){
+        return 'Password3!';
+    }
+
+    function ButtonR(){
+        var randomize = require('randomatic');
+        var rn = require('random-number');
+        var randyOptions = {
+            min:  12,
+            max:  16,
+            integer: true
+        }
+        var randomString = randomize('*',rn(randyOptions));
+        return randomString;
+    }
+
+
+    // eslint-disable-next-line no-unused-vars
+    function PasswordPlaceholder(){
+        return(
+            <div></div>
+        );
+    }
 
     // for testing
     // eslint-disable-next-line no-unused-vars
@@ -108,6 +128,7 @@ function App(){
                 </div>
                 <DisplayBox/>
             </div>
+            <PasswordPlaceholder/>
             <div className="ExplainSection">
                 <div className="Divider"><Divider variant="middle" /></div> 
                 <div className= "ScrollingText">

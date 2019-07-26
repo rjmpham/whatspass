@@ -12,7 +12,7 @@
   margin-bottom: 4%;
   margin-left: 0%;
   margin-right: 0%;
-  font-size: 20px;
+  font-size: 2em;
 }
 
 .TitleButtonsBar {
@@ -22,8 +22,8 @@
 
 .ReplyBox { 
     margin-top: 1cm;
-    margin-left: 40%;
-    margin-right: 40%;
+    margin: 0 auto;
+    width: 320px;
     text-align: center;
     border: #282c34;
     background-color: rgb(207, 204, 201);
