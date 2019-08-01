@@ -20,6 +20,8 @@ plugins:
     
 rules:
     "indent": 2
-    "react-hooks/rules-of-hooks": error
-    "react-hooks/exhaustive-deps": warn
-    
+    "react-hooks/rules-of-hooks": 2
+    "react-hooks/exhaustive-deps": 1
+    "quotes": [1, "single", "avoid-escape"]
+    "semi": [2,"always"]
+    "no-undef": 2

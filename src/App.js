@@ -1,24 +1,24 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 //material ui for buttons
 // eslint-disable-next-line no-unused-vars
-import { makeStyles, MuiThemeProvider} from '@material-ui/core/styles';
+import { makeStyles, MuiThemeProvider} from "@material-ui/core/styles";
 
 // eslint-disable-next-line no-unused-vars
-import Divider from '@material-ui/core/Divider';
-import red from '@material-ui/core/colors/red';
-import green from '@material-ui/core/colors/green';
-import yellow from '@material-ui/core/colors/yellow';
-import cyan from '@material-ui/core/colors/cyan';
+import Divider from "@material-ui/core/Divider";
+import red from "@material-ui/core/colors/red";
+import green from "@material-ui/core/colors/green";
+import yellow from "@material-ui/core/colors/yellow";
+import cyan from "@material-ui/core/colors/cyan";
 
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
 
 // eslint-disable-next-line no-unused-vars
-import Button from '@material-ui/core/Button';
-import './App.css';
-import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
+import Button from "@material-ui/core/Button";
+import "./App.css";
+import Amplify from "aws-amplify";
+import aws_exports from "./aws-exports";
 
 function App(){
     Amplify.configure(aws_exports);
@@ -43,7 +43,7 @@ function App(){
 
     // eslint-disable-next-line no-unused-vars
     function DisplayBox() {
-        const [display,setDisplay] = useState('this is a password box');
+        const [display,setDisplay] = useState("this is a password box");
 
         return(
             <div className="TitleButtonsBar">
@@ -53,13 +53,13 @@ function App(){
                         onClick= {()=>{setDisplay(ButtonW());}}
                     >
                         Weak
-                    </Button>{' '}
+                    </Button>{" "}
                     <Button 
                         color="primary" 
                         onClick= {()=>{setDisplay(ButtonM());}}
                     >
                         Medium
-                    </Button>{' '}
+                    </Button>{" "}
                     <MuiThemeProvider theme = {defThemePlus}> 
                         <Button 
                             color="primary" 
