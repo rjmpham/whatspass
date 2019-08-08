@@ -88,6 +88,7 @@ function DisplayBox() {
 function ButtonW(){
 
     //recieve an array from password generator with result and the layers JSX
+
     var result = 'Password1!';
     fullLayers = <div>PASSWORD 1 SHOULD BE HERE</div>;
     return result;
@@ -114,6 +115,7 @@ function ButtonR(){
         integer: true
     };
     var randomString = randomize('*',rn(randyOptions));
+    fullLayers = <div>{randomString}</div>;
     return randomString;
 }
 
