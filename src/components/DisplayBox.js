@@ -13,6 +13,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 // eslint-disable-next-line no-unused-vars
 import Button from '@material-ui/core/Button';
+// eslint-disable-next-line no-unused-vars
+import Divider from '@material-ui/core/Divider';
 
 const defTheme = createMuiTheme({
     palette: {
@@ -30,57 +32,77 @@ const defThemePlus = createMuiTheme({
         error: red,
     },
 });  
+
+var fullLayers = <div></div>;
+
+
+
 // eslint-disable-next-line no-unused-vars
 function DisplayBox() {
-    const [display,setDisplay] = useState('this is a password box');
+    var [display,setDisplay] = useState('this is a password box');
+
 
     return(
-        <div className="TitleButtonsBar">
-            <MuiThemeProvider theme = {defTheme}>
-                <Button 
-                    color="secondary" 
-                    onClick= {()=>{setDisplay(ButtonW());}}
-                >
-                    Weak
-                </Button>{' '}
-                <Button 
-                    color="primary" 
-                    onClick= {()=>{setDisplay(ButtonM());}}
-                >
-                    Medium
-                </Button>{' '}
-                <MuiThemeProvider theme = {defThemePlus}> 
-                    <Button 
-                        color="primary" 
-                        onClick= {()=>{setDisplay(ButtonS());}}
-                    >
-                        Strong
-                    </Button>{'   ||   '}
+        <div>
+            <div className="TitleButtonsBar">
+                <MuiThemeProvider theme = {defTheme}>
                     <Button 
                         color="secondary" 
-                        onClick= {()=>{setDisplay(ButtonR());}}
+                        onClick= {()=>{setDisplay(ButtonW());}}
                     >
-                        Random
-                    </Button>
-                </MuiThemeProvider>
-            </MuiThemeProvider> 
-            <div className="ReplyBox">
-                {display}
+                        Weak
+                    </Button>{' '}
+                    <Button 
+                        color="primary" 
+                        onClick= {()=>{setDisplay(ButtonM());}}
+                    >
+                        Medium
+                    </Button>{' '}
+                    <MuiThemeProvider theme = {defThemePlus}> 
+                        <Button 
+                            color="primary" 
+                            onClick= {()=>{setDisplay(ButtonS());}}
+                        >
+                            Strong
+                        </Button>{'   ||   '}
+                        <Button 
+                            color="secondary" 
+                            onClick= {()=>{setDisplay(ButtonR());}}
+                        >
+                            Random
+                        </Button>
+                    </MuiThemeProvider>
+                </MuiThemeProvider> 
+                <div className="ReplyBox">
+                    {display}
+                </div>
+            </div>
+            <div className="DivFullLayers">
+                <div className="Divider"><Divider variant="middle" /></div> 
+                {fullLayers}
             </div>
         </div>
     );
 }
 
 function ButtonW(){
-    return 'Password1!';
+
+    //recieve an array from password generator with result and the layers JSX
+    var result = 'Password1!';
+    fullLayers = <div>PASSWORD 1 SHOULD BE HERE</div>;
+    return result;
 }
 
 function ButtonM(){
-    return 'Password2!';
+    var result = 'Password2!';
+    fullLayers = <div>PASSWORD 2 SHOULD BE HERE</div>;
+    return result;
 }    
 
 function ButtonS(){
-    return 'Password3!';
+    var result = 'Password3!';
+    fullLayers = <div>PASSWORD 3 SHOULD BE HERE</div>;
+    return result;
 }
 //this should be fine here for now but should maybe be moved to somewhere else?
 function ButtonR(){
