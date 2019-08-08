@@ -148,7 +148,7 @@ function App(){
                         least one of each of these are not strictly random, it is better to enforce
                         these rules as it makes a user pick better passwords. Just look at 
                         this quote from 
-                        a <a href="https://www.archive.ece.cmu.edu/~lbauer/papers/2012/usenix2012-meters.pdf" target="_blank">
+                        a <a href="https://www.archive.ece.cmu.edu/~lbauer/papers/2012/usenix2012-meters.pdf" target="_blank" rel="noopener noreferrer">
                             paper</a> on
                         password meters: 
                     </p>
@@ -177,11 +177,11 @@ function App(){
                         Nobody reading this page is using <i className="Password">password1</i> right? 
                         Well, the most common things are words with some numbers. Take a look
                         this graphic from 
-                        this <a href="http://vialab.science.uoit.ca/pwdates/2012-vizsec-visualizing-semantics-in-passwords.pdf" target="_blank">
+                        this <a href="http://vialab.science.uoit.ca/pwdates/2012-vizsec-visualizing-semantics-in-passwords.pdf" target="_blank" rel="noopener noreferrer">
                             paper</a> to see just how common things in the calender are used in passwords: 
                     </p>
                     
-                    <img style = {{width: 850, height: 150 }} src={passDates}/>
+                    <img style = {{width: 850, height: 150 }} src={passDates} alt="password dates visual"/>
                     <p> Annotations on this bar point out interesting patterns in numeric or mixed passwords that 
                         contain date information. Far from being random, even among dates do people pick ones that 
                         are very common, like valentines day, and christmas. The format of what a date looks like 
@@ -191,11 +191,11 @@ function App(){
                       
                     <div className = "TableDate">
                     
-                        <img style = {{width: 598, height: 442 }} src={passDatesTable}/>
+                        <img style = {{width: 598, height: 442 }} src={passDatesTable} alt="password dates table"/>
 
                     </div>
                     <p> These passwords come in the form listed in this table found in the apendex of 
-                        the <a href="http://vialab.science.uoit.ca/pwdates/2012-vizsec-visualizing-semantics-in-passwords.pdf" target="_blank">
+                        the <a href="http://vialab.science.uoit.ca/pwdates/2012-vizsec-visualizing-semantics-in-passwords.pdf" target="_blank" rel="noopener noreferrer">
                         paper</a>. As you can clearly see, the numbers included in passwords can 
                         be far from random. 
                     </p>
