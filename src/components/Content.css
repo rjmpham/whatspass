@@ -1,0 +1,32 @@
+.ExplainSection{
+    background-color: azure;
+    height: 100%
+}
+
+.Divider{
+    margin: 5%
+}
+
+.ScrollingText {
+    text-align: justify;
+    margin-left: 15%;
+    margin-right: 15%;
+    line-height: 1.5;
+}
+
+.TableDate {
+    float: left;
+    margin-right: 15px;
+}
+.tr{
+    text-align: center;
+}
+
+.Password { 
+    font-family:courier;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
