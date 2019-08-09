@@ -11,8 +11,6 @@ import aws_exports from './aws-exports';
 
 function App(){
     Amplify.configure(aws_exports);
-    
-  
 
     return (
         
@@ -24,7 +22,6 @@ function App(){
                 </div>
                 <DisplayBox/>
             </div>
-            
             <Content/>
         </div>
     );

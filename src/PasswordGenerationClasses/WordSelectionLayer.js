@@ -15,10 +15,10 @@ export default class WordSelectionLayer extends Layer{
 
     getPasswordOutput(input){
         this.ouput = '';
-        let wordsList = getWordList();
+        var randomWords = require('random-words');
         let numberOfWords = Utilities.getRandRange(0, 3);
         for(let i  =0 ; i < numberOfWords; i++){
-            let newWord = wordsList[Utilities.getRandRangeInt(0, wordsList.length)];
+            let newWord = randomWords();
             let newTuple = new Tuple(true, newWord, "Added word " + newWord);
             
             this.ouput += newWord;
