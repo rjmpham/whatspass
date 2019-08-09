@@ -48,9 +48,3 @@ export default class WordSelectionLayer extends Layer{
    
 }
 
-
-
-
-function getWordList(){
-    return ['one', 'two', 'three', 'four'];
-}

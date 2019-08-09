@@ -13,7 +13,9 @@ export default class LetterModificationLayer extends Layer{
     
     allChars = [];
 
-    
+    //This method should overridden by class that extends the this layer.
+    //This is used to determine what letter to replace char with.
+    //Called in getPasswordOutput(input)
     getReplacement(char){
         return '';
     }
@@ -21,19 +23,21 @@ export default class LetterModificationLayer extends Layer{
     //input is a string that is some words. Here we randomly replace characters with others.
     getPasswordOutput(input){
         let MAX_CHANGES = 0;
+        
+        //set the maximum number of changes based on constants.
         switch(this.passwordStrength){
-            case STRENGTH.WEAK:
-                MAX_CHANGES = MAX_WEAK_CHANGES;
-                break;
-            case STRENGTH.MEDIUM:
-                MAX_CHANGES = MAX_MEDIUM_CHANGES;
-                break;
-            case STRENGTH.STRONG: 
-                MAX_CHANGES = MAX_STRONG_CHANGES;
-                break;
-            default:
-                MAX_CHANGES = MAX_STRONG_CHANGES;
-                break;
+        case STRENGTH.WEAK:
+            MAX_CHANGES = MAX_WEAK_CHANGES;
+            break;
+        case STRENGTH.MEDIUM:
+            MAX_CHANGES = MAX_MEDIUM_CHANGES;
+            break;
+        case STRENGTH.STRONG: 
+            MAX_CHANGES = MAX_STRONG_CHANGES;
+            break;
+        default:
+            MAX_CHANGES = MAX_STRONG_CHANGES;
+            break;
         }
         
 
@@ -117,7 +121,7 @@ export default class LetterModificationLayer extends Layer{
             //get the whatever was unchanged from before:
 
             
-            //if randIndex is
+            //if randIndex is different, then we have some chars that were unchanged.
             if(unchangedIndex !== randIndex){
                 let unchanged = tempOutput.slice(unchangedIndex,randIndex);
                 console.log('Unchanged = ' + unchanged + ' from ' + unchangedIndex + ' to ' + randIndex);

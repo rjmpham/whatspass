@@ -16,6 +16,8 @@ export default class CapitalizationLayer extends LetterModificationLayer{
         
     }
 
+    //getReplacement is called during the getPasswordOutput(char), and is used to decide what to replace char with.
+    //char is some lower case alpha character.
     getReplacement(char){
         return char.toUpperCase();
     }
