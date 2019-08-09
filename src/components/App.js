@@ -16,11 +16,10 @@ function App(){
         
         <div className="MainPage">
             <div className="PasswordSection">
-
                 <div className="MainTitle">
                     <h1>What's in a Password?</h1>
                 </div>
-                <DisplayBox/>
+                <DisplayBox/>   
             </div>
             <Content/>
         </div>

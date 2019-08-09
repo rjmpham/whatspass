@@ -1,4 +1,5 @@
-import Layer from "./Layer.js";
+/* eslint-disable no-console */
+import Layer from './Layer.js';
 import Utilities from './Utilities.js';
 import Tuple from './Tuple.js';
 
@@ -44,7 +45,7 @@ export default class LetterModificationLayer extends Layer{
 
             changedIndexes.push(randIndex);
 
-                console.log("Replaced " + tempOutput[randIndex] + ' at ' + randIndex + ' with ' + replacement );
+            console.log('Replaced ' + tempOutput[randIndex] + ' at ' + randIndex + ' with ' + replacement );
             
             tempOutput = Utilities.replaceAt(tempOutput, randIndex, replacement );
             
@@ -67,7 +68,7 @@ export default class LetterModificationLayer extends Layer{
                 this.outputTuples.push(new Tuple(false, unchanged, ''));
             }
             
-            console.log("Changed : " + tempOutput[randIndex] + ' at ' + randIndex);
+            console.log('Changed : ' + tempOutput[randIndex] + ' at ' + randIndex);
             this.outputTuples.push(new Tuple(true, tempOutput[randIndex], 'Replaced ' + input[randIndex] + ' with ' + tempOutput[randIndex]));
             
             

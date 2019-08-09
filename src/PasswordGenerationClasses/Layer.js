@@ -1,12 +1,13 @@
+import React from 'react';
 
-
- export default class Layer{
+export default class Layer{
     outputTuples = [];
-    description = "No description available";
-    layerName = "LayerName"
+    description = 'No description available';
+    layerName = 'LayerName';
+    blurb= 'Nothing to see here';
 
     input = '';
-    output = "output";  
+    output = 'output';  
 
     getJSX(){
         return;

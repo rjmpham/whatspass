@@ -1,10 +1,11 @@
+/* eslint-disable no-console */
 import WordSelectionLayer from './WordSelectionLayer.js';
 import CapitalizationLayer from './CapitalizationLayer.js';
 import TransformLayer from './TransformLayer.js';
 
 
 
- export default class PasswordGenerator{
+export default class PasswordGenerator{
     layersList = [];
     password = 'null';
 
@@ -22,7 +23,7 @@ import TransformLayer from './TransformLayer.js';
         this.layersList.forEach(_layer => {
             
             ret = _layer.getPasswordOutput(ret);
-            console.log('Layer ' + _layer.layerName + ' returned: '+ ret)
+            console.log('Layer ' + _layer.layerName + ' returned: '+ ret);
         });
 
         console.log('set this.password to ' + ret);

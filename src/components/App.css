@@ -1,10 +1,13 @@
 .MainPage {
     margin-top: 10%;
+    margin-bottom:0%;
 }
 
 .ExplainSection{
     background-color: azure;
-    height: 100%
+}
+.PasswordSection{
+    margin: 0%; 
 }
 
 .MainTitle {
@@ -54,7 +57,7 @@ table {
   }
 
 .Divider{
-    margin: 5%
+    margin: 5%;
 }
 
 .App-logo {
@@ -89,6 +92,27 @@ table {
   display: inline-block;
 }
 
+.StyleSingleLayer {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.StyleLayerName {
+    margin-left: 15%;
+}
+
+.StyleLayerOutput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.StyleLayerBlurb {
+    margin-left: 15%;
+    margin-right: 15%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
