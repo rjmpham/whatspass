@@ -19,6 +19,14 @@ import Divider from '@material-ui/core/Divider';
 import PasswordGenerator from '../PasswordGenerationClasses/PasswordGenerator.js';
 import ShowLayerOutput from '../PasswordGenerationClasses/ShowLayerOutput.jsx';
 
+const STRENGTH = {
+    WEAK: "WEAK", 
+    MEDIUM: "MEDIUM",
+    STRONG: 'STRONG',
+    RANDOM: 'RANDOM',
+}
+
+
 const defTheme = createMuiTheme({
     palette: {
         warning: red,
