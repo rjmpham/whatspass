@@ -79,6 +79,16 @@ table {
   color: #61dafb;
 }
 
+.LayerOutputStandardGreen{
+  color: green;
+  display: inline-block;
+}
+
+.LayerOutputStandard{
+  color: black;
+  display: inline-block;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

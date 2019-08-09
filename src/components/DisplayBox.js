@@ -16,6 +16,9 @@ import Button from '@material-ui/core/Button';
 // eslint-disable-next-line no-unused-vars
 import Divider from '@material-ui/core/Divider';
 
+import PasswordGenerator from '../PasswordGenerationClasses/PasswordGenerator.js';
+import ShowLayerOutput from '../PasswordGenerationClasses/ShowLayerOutput.jsx';
+
 const defTheme = createMuiTheme({
     palette: {
         warning: red,
@@ -89,22 +92,43 @@ function ButtonW(){
 
     //recieve an array from password generator with result and the layers JSX
 
+    
     var result = 'Password1!';
     fullLayers = <div>PASSWORD 1 SHOULD BE HERE</div>;
-    return result;
+    return TestPasswordGeneration();
 }
 
 function ButtonM(){
     var result = 'Password2!';
     fullLayers = <div>PASSWORD 2 SHOULD BE HERE</div>;
-    return result;
+    return TestPasswordGeneration();
 }    
 
 function ButtonS(){
     var result = 'Password3!';
     fullLayers = <div>PASSWORD 3 SHOULD BE HERE</div>;
-    return result;
+    return TestPasswordGeneration();
 }
+
+function TestPasswordGeneration(){
+    function getLayerJSX(layers){
+        return (<div>
+            { layers.map((x, index) => 
+            
+            <ShowLayerOutput layer={x} key={index}/>
+            )}
+            
+        </div>);
+    }
+
+
+    let passwordGenerator =  new PasswordGenerator();
+    let output = passwordGenerator.generateNewPassword();
+    let layers = passwordGenerator.layersList;
+    fullLayers = getLayerJSX(layers); 
+    return output;
+}
+
 //this should be fine here for now but should maybe be moved to somewhere else?
 function ButtonR(){
     var randomize = require('randomatic');
