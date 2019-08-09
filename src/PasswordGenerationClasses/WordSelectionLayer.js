@@ -6,8 +6,8 @@ import Tuple from './Tuple.js';
 export default class WordSelectionLayer extends Layer{
     strength = null;
     
-    constructor(){
-        super();
+    constructor(strength){
+        super(strength);
         this.description = 'Choose some random words that are unrelated.'
         this.layerName = "Word Selection Layer."
         

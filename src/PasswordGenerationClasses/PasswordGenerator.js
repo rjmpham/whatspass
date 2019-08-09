@@ -1,6 +1,7 @@
 import WordSelectionLayer from './WordSelectionLayer.js';
 import CapitalizationLayer from './CapitalizationLayer.js';
 import TransformLayer from './TransformLayer.js';
+import {STRENGTH} from '../components/DisplayBox.js';
 
 
 
@@ -8,8 +9,10 @@ import TransformLayer from './TransformLayer.js';
     layersList = [];
     password = 'null';
 
-    constructor(){
-        this.layersList = [new WordSelectionLayer(), new TransformLayer(), new CapitalizationLayer()];
+    constructor(passwordStrength){
+       
+        this.layersList = [new WordSelectionLayer(passwordStrength), new TransformLayer(passwordStrength), new CapitalizationLayer(passwordStrength)];
+        
     }
 
     //TODO delete wrapper
@@ -18,6 +21,7 @@ import TransformLayer from './TransformLayer.js';
     }
 
     generateNewPassword(){
+        console.log("****************************************************");
         let ret; //seed
         this.layersList.forEach(_layer => {
             

@@ -24,7 +24,7 @@ function GenerateResultJSX(layer){
 function TupleToJSX(tuple, index){
     //first tuple value is a bool (isGreen)
 if(tuple.first){
-    return <h1 class = "LayerOutputStandardGreen" key={index}> {tuple.second}</h1>;
+    return <h1 className = "LayerOutputStandardGreen" key={index}> {tuple.second}</h1>;
 }
-    return <h1 class="LayerOutputStandard" key={index}> {tuple.second} </h1>;
+    return <h1 className="LayerOutputStandard" key={index}> {tuple.second} </h1>;
 }

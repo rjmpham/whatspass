@@ -19,7 +19,9 @@ import Divider from '@material-ui/core/Divider';
 import PasswordGenerator from '../PasswordGenerationClasses/PasswordGenerator.js';
 import ShowLayerOutput from '../PasswordGenerationClasses/ShowLayerOutput.jsx';
 
-const STRENGTH = {
+
+//enum for defining the strength value
+export const STRENGTH = {
     WEAK: "WEAK", 
     MEDIUM: "MEDIUM",
     STRONG: 'STRONG',
@@ -97,43 +99,47 @@ function DisplayBox() {
 }
 
 function ButtonW(){
-
+    
     //recieve an array from password generator with result and the layers JSX
 
     
     var result = 'Password1!';
     fullLayers = <div>PASSWORD 1 SHOULD BE HERE</div>;
-    return TestPasswordGeneration();
+    return TestPasswordGeneration(STRENGTH.WEAK);
 }
 
 function ButtonM(){
+    
     var result = 'Password2!';
     fullLayers = <div>PASSWORD 2 SHOULD BE HERE</div>;
-    return TestPasswordGeneration();
+    return TestPasswordGeneration(STRENGTH.MEDIUM);
 }    
 
 function ButtonS(){
+    
     var result = 'Password3!';
     fullLayers = <div>PASSWORD 3 SHOULD BE HERE</div>;
-    return TestPasswordGeneration();
+    return TestPasswordGeneration(STRENGTH.STRONG);
 }
 
-function TestPasswordGeneration(){
-    function getLayerJSX(layers){
+function TestPasswordGeneration(strength){
+    
+    function getLayerJSX(layers, output){
         return (<div>
+            
             { layers.map((x, index) => 
             
             <ShowLayerOutput layer={x} key={index}/>
             )}
-            
+            <h1>{output}</h1>
         </div>);
     }
 
 
-    let passwordGenerator =  new PasswordGenerator();
+    let passwordGenerator =  new PasswordGenerator(strength);
     let output = passwordGenerator.generateNewPassword();
     let layers = passwordGenerator.layersList;
-    fullLayers = getLayerJSX(layers); 
+    fullLayers = getLayerJSX(layers, output); 
     return output;
 }
 

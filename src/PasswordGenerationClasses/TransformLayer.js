@@ -7,8 +7,8 @@ export default class TransformLayer extends LetterModificationLayer{
     
     allChars = [];
     
-    constructor(){
-        super();
+    constructor(passwordStrength){
+        super(passwordStrength);
         this.description = "Replaces random characters in the password.";
         this.layerName  = "Transformation Layer";
        

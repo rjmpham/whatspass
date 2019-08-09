@@ -20,6 +20,23 @@ export default class Utilities{
     }
 
     static replaceAt(str, index, replacement) {
+        if(replacement === undefined){
+            console.error("Replacement is undefined.");
+        }
+
+        if(replacement === null){
+            console.error("Replacement is null.");
+        }
+
+        if(str === undefined){
+            console.error("str is undefined.");
+        }
+
+        if(str === null){
+            console.error("str is null.");
+        }
+        
+        
         return str.substr(0, index) + replacement+ str.substr(index + replacement.length);
     }
     
