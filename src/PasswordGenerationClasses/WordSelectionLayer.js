@@ -1,6 +1,7 @@
 import Layer from './Layer.js';
 import Utilities from './Utilities.js';
 import Tuple from './Tuple.js';
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 
 export default class WordSelectionLayer extends Layer{
@@ -18,6 +19,7 @@ export default class WordSelectionLayer extends Layer{
         
     }
 
+    // eslint-disable-next-line no-unused-vars
     getPasswordOutput(input){
         this.ouput = '';
         var randomWords = require('random-words');

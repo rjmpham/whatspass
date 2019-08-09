@@ -24,7 +24,7 @@ const STRENGTH = {
     MEDIUM: 'MEDIUM',
     STRONG: 'STRONG',
     RANDOM: 'RANDOM',
-}
+};
 
 const defTheme = createMuiTheme({
     palette: {

@@ -1,5 +1,6 @@
 import Utilities from './Utilities.js';
 import LetterModificationLayer from './LetterModificationLayer.js';
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 
 
@@ -20,10 +21,10 @@ export default class TransformLayer extends LetterModificationLayer{
         ;
        
         for (var i=32; i<127; i++)
-            this.allChars.push(String.fromCharCode(i))
+            this.allChars.push(String.fromCharCode(i));
     }
 
-    getReplacement(_){
+    getReplacement(){
         return this.allChars[Utilities.getRandRangeInt(0, this.allChars.length)];
     }
 

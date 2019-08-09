@@ -5,6 +5,7 @@ import React from 'react';
 
 
 export default class ShowLayerOutput extends Component {
+    // eslint-disable-next-line no-unused-vars
     render(props) {
         return <div>
             {GenerateResultJSX(this.props.layer)}
