@@ -1,9 +1,11 @@
 
 import {Component} from 'react';
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 
 
 export default class ShowLayerOutput extends Component {
+    // eslint-disable-next-line no-unused-vars
     render(props) {
         return <div>
             {GenerateResultJSX(this.props.layer)}
@@ -13,18 +15,22 @@ export default class ShowLayerOutput extends Component {
 
 function GenerateResultJSX(layer){
     let tupleList = layer.outputTuples;
-    return <div>
-        <h1> Layer output for Layer {layer.layerName} </h1>
-        {tupleList.map( (x, index)=> TupleToJSX(x, index))}
-    </div>
+    return( 
+        <div className= "StyleSingleLayer">
+            <h2 className= "StyleLayerName"> {layer.layerName} </h2>
+            <div className="StyleLayerOutput">        
+                {tupleList.map( (x, index)=> TupleToJSX(x, index))}
+            </div>
+            <div className="StyleLayerBlurb">{layer.description}</div>
+        </div>);
 
 }
 
 
 function TupleToJSX(tuple, index){
     //first tuple value is a bool (isGreen)
-if(tuple.first){
-    return <h1 className = "LayerOutputStandardGreen" key={index}> {tuple.second}</h1>;
-}
-    return <h1 className="LayerOutputStandard" key={index}> {tuple.second} </h1>;
+    if(tuple.first){
+        return <h2 className = "LayerOutputStandardGreen" key={index}> {tuple.second}  <br></br></h2>;
+    }
+    return <h2 className="LayerOutputStandard" key={index}> {tuple.second} <br></br> </h2>;
 }

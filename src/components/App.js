@@ -11,20 +11,16 @@ import aws_exports from './aws-exports';
 
 function App(){
     Amplify.configure(aws_exports);
-    
-  
 
     return (
         
         <div className="MainPage">
             <div className="PasswordSection">
-
                 <div className="MainTitle">
                     <h1>What's in a Password?</h1>
                 </div>
-                <DisplayBox/>
+                <DisplayBox/>   
             </div>
-            
             <Content/>
         </div>
     );

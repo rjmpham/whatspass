@@ -1,25 +1,35 @@
 import Layer from './Layer.js';
 import Utilities from './Utilities.js';
 import Tuple from './Tuple.js';
-
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
 
 export default class WordSelectionLayer extends Layer{
     strength = null;
     
-    constructor(strength){
-        super(strength);
-        this.description = 'Choose some random words that are unrelated.'
-        this.layerName = "Word Selection Layer."
+    constructor(passwordStrength){
+        super(passwordStrength);
+        this.description = 'Choose some random words that are unrelated.';
+        this.layerName = 'Select Random Words';
+        this.blurb = 
+        <p>
+            Funny thing about this eh.
+        </p>
+        ; 
         
     }
 
+    // eslint-disable-next-line no-unused-vars
     getPasswordOutput(input){
         this.ouput = '';
-        let wordsList = getWordList();
-        let numberOfWords = Utilities.getRandRange(0, 3);
+        var randomWords = require('random-words');
+        let numberOfWords = Utilities.getRandRange(0, 4);
         for(let i  =0 ; i < numberOfWords; i++){
-            let newWord = wordsList[Utilities.getRandRangeInt(0, wordsList.length)];
-            let newTuple = new Tuple(true, newWord, "Added word " + newWord);
+            let newWord = randomWords();
+            while(newWord.length<=2){
+                newWord = randomWords();
+            }
+            let newTuple = new Tuple(true, newWord, 'Added word ' + newWord);
             
             this.ouput += newWord;
             this.outputTuples.push(newTuple);

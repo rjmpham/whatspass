@@ -4,19 +4,26 @@
     margin: 5%;
   }
   
-  .ReplyBox { 
-      margin-top: 1cm;
-      margin: 0 auto;
-      width: 320px;
-      text-align: center;
-      border: #282c34;
-      background-color: rgb(207, 204, 201);
-  }
+.ReplyBox { 
+    margin-top: 1cm;
+    margin: 0 auto;
+    width: 320px;
+    text-align: center;
+    border: #282c34;
+    background-color: rgb(207, 204, 201);
+}   
 
-  .DivFullLayers {
-    background-color: azure;
-    height: 100%;   
-  }
+.Title {
+    margin-left: 15%;
+    text-align: left;
+}
+
+.StyleLayerExplain {
+    text-align: justify;
+    margin-left: 15%;
+    margin-right: 15%;
+    line-height: 1.5;
+}
 
  
   
