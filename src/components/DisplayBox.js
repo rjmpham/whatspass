@@ -19,11 +19,11 @@ import PasswordGenerator from '../PasswordGenerationClasses/PasswordGenerator.js
 import ShowLayerOutput from '../PasswordGenerationClasses/ShowLayerOutput.jsx';
 import './DisplayBox.css';
 
-const STRENGTH = {
-    WEAK: 'WEAK', 
-    MEDIUM: 'MEDIUM',
-    STRONG: 'STRONG',
-    RANDOM: 'RANDOM',
+export const STRENGTH = {
+    WEAK: 0, 
+    MEDIUM: 3,
+    STRONG: 4,
+    RANDOM: 5,
 };
 
 const defTheme = createMuiTheme({
@@ -93,19 +93,22 @@ function DisplayBox() {
     );
 }
 
-function PasswordGeneration(strengthParam){
-    function getLayerJSX(layers){
-        return (<div>
-            { layers.map((x, index) =>     
-                <ShowLayerOutput layer={x} key={index}/>
-            )}     
-        </div>);
-    }
+function getLayerJSX(layers){
+    return (<div>
+        { layers.map((x, index) =>     
+            <ShowLayerOutput layer={x} key={index}/>
+        )}     
+    </div>);
+}
 
-    if (strengthParam!= STRENGTH.RANDOM) {  
-        let passwordGenerator =  new PasswordGenerator();
+function PasswordGeneration(strengthParam){
+    
+
+    if (strengthParam !== STRENGTH.RANDOM) {  
+        let passwordGenerator =  new PasswordGenerator(strengthParam);
         var output = passwordGenerator.generateNewPassword();
         var layers = passwordGenerator.layersList;
+        
     }
 
     switch(strengthParam) {
@@ -155,7 +158,7 @@ function PasswordGeneration(strengthParam){
     case STRENGTH.RANDOM:
         var randomize = require('randomatic');
         var rn = require('random-number');
-        var randyOptions = {
+        var randyOptions = {    //https://www.youtube.com/watch?v=xqKPe9w5bUs ;)
             min:  12,
             max:  16,
             integer: true
@@ -174,6 +177,9 @@ function PasswordGeneration(strengthParam){
                     generic information regarding the anatomy of passwords, disclaimers, and recommendations. 
             </p>
         </div>;
+        break;
+    default:
+        fullLayers= <div><h1>Illegal Enum used.</h1></div>;
         break;
     }
     return output;

@@ -2,15 +2,18 @@
 import WordSelectionLayer from './WordSelectionLayer.js';
 import CapitalizationLayer from './CapitalizationLayer.js';
 import TransformLayer from './TransformLayer.js';
+import { loadingOverlay } from '@aws-amplify/ui';
 
-
+const MAX_PASSWORD_GENERATION_ATTEMPTS = 10;
 
 export default class PasswordGenerator{
     layersList = [];
     password = 'null';
 
-    constructor(){
-        this.layersList = [new WordSelectionLayer(), new TransformLayer(), new CapitalizationLayer()];
+    constructor(passwordStrength){
+       
+        this.layersList = [new WordSelectionLayer(passwordStrength), new TransformLayer(passwordStrength), new CapitalizationLayer(passwordStrength)];
+        
     }
 
     //TODO delete wrapper
@@ -19,18 +22,44 @@ export default class PasswordGenerator{
     }
 
     generateNewPassword(){
-        let ret; //seed
-        this.layersList.forEach(_layer => {
-            
-            ret = _layer.getPasswordOutput(ret);
-            console.log('Layer ' + _layer.layerName + ' returned: '+ ret);
-        });
-
-        console.log('set this.password to ' + ret);
-        this.password = ret;
-        console.log('it is now ' + this.password);
         
-        return ret;
+       
+        // var generateUncheckedPassword = function(layersList){
+            
+        // };
+
+
+        let layerOuput =''; 
+    
+            this.layersList.forEach(_layer => {
+                _layer.reset();
+                layerOuput = _layer.getPasswordOutput(layerOuput);
+    
+            });
+           
+
+        //var zxcvbn = require('zxcvbn');
+        // let iterations = 0;
+        // do{
+            
+        //     var generatedPassword = generateUncheckedPassword();
+        //     var result = zxcvbn(generatedPassword);
+        //     iterations++;
+        // }
+        // while(result.score < this.passwordStrength && iterations < MAX_PASSWORD_GENERATION_ATTEMPTS );
+        
+        // if(iterations >= MAX_PASSWORD_GENERATION_ATTEMPTS)
+        //     console.error('Unable to generate good enough password in ' + MAX_PASSWORD_GENERATION_ATTEMPTS + ' attempts.');
+       
+       
+
+        let generatedPassword = layerOuput; //generateUncheckedPassword(this.layersList);
+        this.password = generatedPassword;
+       
+        console.log("Generated password: " + generatedPassword);
+
+        console.log("Layers is: " + this.layersList);
+        return generatedPassword;
     }
 
 
@@ -41,6 +70,8 @@ export default class PasswordGenerator{
     getLayers(){
         return this.layersList;
     }
+
+    
 
   
 

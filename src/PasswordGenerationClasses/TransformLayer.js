@@ -10,8 +10,8 @@ export default class TransformLayer extends LetterModificationLayer{
     
     allChars = [];
     
-    constructor(){
-        super();
+    constructor(passwordStrength){
+        super(passwordStrength);
         this.description = 'Replaces random characters in the password.';
         this.layerName  = 'Add Random Elements';
         this.blurb = 
@@ -24,7 +24,8 @@ export default class TransformLayer extends LetterModificationLayer{
             this.allChars.push(String.fromCharCode(i));
     }
 
-    getReplacement(){
+    //getReplacement is called during the getPasswordOutput(char), and is used to decide what to replace char with.
+    getReplacement(char){
         return this.allChars[Utilities.getRandRangeInt(0, this.allChars.length)];
     }
 

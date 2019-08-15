@@ -7,8 +7,8 @@ import React from 'react';
 export default class WordSelectionLayer extends Layer{
     strength = null;
     
-    constructor(){
-        super();
+    constructor(passwordStrength){
+        super(passwordStrength);
         this.description = 'Choose some random words that are unrelated.';
         this.layerName = 'Select Random Words';
         this.blurb = 
@@ -48,9 +48,3 @@ export default class WordSelectionLayer extends Layer{
    
 }
 
-
-
-
-function getWordList(){
-    return ['one', 'two', 'three', 'four'];
-}
