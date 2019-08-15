@@ -16,6 +16,7 @@ export default class LetterModificationLayer extends Layer{
     //This method should overridden by class that extends the this layer.
     //This is used to determine what letter to replace char with.
     //Called in getPasswordOutput(input)
+    // eslint-disable-next-line no-unused-vars
     getReplacement(char){
         return '';
     }
@@ -55,7 +56,7 @@ export default class LetterModificationLayer extends Layer{
             let foundValidIndex = false;
             //attempt to generate a random index that is valid, and an accompanying replacement value.
             let iterations = 0;
-           while(!foundValidIndex){ 
+            while(!foundValidIndex){ 
                 foundValidIndex = true;
 
                 randIndex = Utilities.getRandRangeInt(0, tempOutput.length);
@@ -64,7 +65,7 @@ export default class LetterModificationLayer extends Layer{
                 //Check 1:
                 //do not reuse indexes, try again
                 if(changedIndexes.includes(randIndex)){
-                    console.log("Discarding " + randIndex + ' as the index was already used.');
+                    console.log('Discarding ' + randIndex + ' as the index was already used.');
                     foundValidIndex = false;
                 }
                    
@@ -75,21 +76,21 @@ export default class LetterModificationLayer extends Layer{
                 //Check 2
                 //if the replacement happens to not change the tempOutput, try again.
                 if(tempOutput[randIndex] === replacement){
-                    console.log("Discarding " + randIndex + ' as the change has no effect.');
+                    console.log('Discarding ' + randIndex + ' as the change has no effect.');
                     foundValidIndex = false;
                 }
                     
                 
                 //Check 3, is the target character lower case?
                 if(!this.hasLowerCase(tempOutput[randIndex] )){
-                    console.log("Discarding " + randIndex + ' as it is not a lower case letter.');
+                    console.log('Discarding ' + randIndex + ' as it is not a lower case letter.');
                     foundValidIndex= false;
                 }
 
                 iterations++;
                 
                 if(iterations> MAX_ITERATIONS){
-                    console.error("Attempt to find valid index timed out.");
+                    console.error('Attempt to find valid index timed out.');
                     break;
                 }
                     
@@ -103,7 +104,7 @@ export default class LetterModificationLayer extends Layer{
 
             console.log('Replaced ' + tempOutput[randIndex] + ' at ' + randIndex + ' with ' + replacement );
             
-             //replace the tempOutput[randIndex] with replacement.
+            //replace the tempOutput[randIndex] with replacement.
             tempOutput = Utilities.replaceAt(tempOutput, randIndex, replacement );
             
         }  
