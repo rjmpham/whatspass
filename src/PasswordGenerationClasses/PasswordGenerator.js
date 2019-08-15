@@ -2,8 +2,12 @@
 import WordSelectionLayer from './WordSelectionLayer.js';
 import CapitalizationLayer from './CapitalizationLayer.js';
 import TransformLayer from './TransformLayer.js';
+import PaddingLayer from './PaddingLayer.js';
+// eslint-disable-next-line no-unused-vars
 import { loadingOverlay } from '@aws-amplify/ui';
 
+
+// eslint-disable-next-line no-unused-vars
 const MAX_PASSWORD_GENERATION_ATTEMPTS = 10;
 
 export default class PasswordGenerator{
@@ -12,7 +16,7 @@ export default class PasswordGenerator{
 
     constructor(passwordStrength){
        
-        this.layersList = [new WordSelectionLayer(passwordStrength), new TransformLayer(passwordStrength), new CapitalizationLayer(passwordStrength)];
+        this.layersList = [new WordSelectionLayer(passwordStrength), new TransformLayer(passwordStrength), new CapitalizationLayer(passwordStrength), new PaddingLayer(passwordStrength)];
         
     }
 
@@ -31,11 +35,11 @@ export default class PasswordGenerator{
 
         let layerOuput =''; 
     
-            this.layersList.forEach(_layer => {
-                _layer.reset();
-                layerOuput = _layer.getPasswordOutput(layerOuput);
-    
-            });
+        this.layersList.forEach(_layer => {
+            _layer.reset();
+            layerOuput = _layer.getPasswordOutput(layerOuput);
+
+        });
            
 
         //var zxcvbn = require('zxcvbn');
@@ -56,9 +60,9 @@ export default class PasswordGenerator{
         let generatedPassword = layerOuput; //generateUncheckedPassword(this.layersList);
         this.password = generatedPassword;
        
-        console.log("Generated password: " + generatedPassword);
+        console.log('Generated password: ' + generatedPassword);
 
-        console.log("Layers is: " + this.layersList);
+        console.log('Layers is: ' + this.layersList);
         return generatedPassword;
     }
 

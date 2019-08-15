@@ -7,7 +7,7 @@ import {STRENGTH} from '../components/DisplayBox.js';
 const MAX_ITERATIONS = 100; //the maxiumum number of iterations that getPasswordOutput can use when attempting to generate a usable index.
 const MAX_WEAK_CHANGES = 1;
 const MAX_MEDIUM_CHANGES = 3;
-const MAX_STRONG_CHANGES = 5;
+const MAX_STRONG_CHANGES = 4;
 
 export default class LetterModificationLayer extends Layer{
     
@@ -45,8 +45,7 @@ export default class LetterModificationLayer extends Layer{
         this.input = input;
         let numberOfChanges = Utilities.getRandRangeInt(1, MAX_CHANGES);
         let tempOutput = input;
-        let changedIndexes = []
-        ;
+        let changedIndexes = [];
         for(let i = 0; i < numberOfChanges; i++){
             //foreach each change needed, choose a random index, and replace the tempOutput[randomIndex] with the replacement.
 
@@ -126,6 +125,8 @@ export default class LetterModificationLayer extends Layer{
             if(unchangedIndex !== randIndex){
                 let unchanged = tempOutput.slice(unchangedIndex,randIndex);
                 console.log('Unchanged = ' + unchanged + ' from ' + unchangedIndex + ' to ' + randIndex);
+                
+                //TODO is this supposed to be Tuple(false, '', unchanged) ??
                 this.outputTuples.push(new Tuple(false, unchanged, ''));
             }
             

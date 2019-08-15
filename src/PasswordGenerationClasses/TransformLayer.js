@@ -19,12 +19,13 @@ export default class TransformLayer extends LetterModificationLayer{
             ppppplaceholder
         </p>
         ;
-       
+        
         for (var i=32; i<127; i++)
             this.allChars.push(String.fromCharCode(i));
     }
 
     //getReplacement is called during the getPasswordOutput(char), and is used to decide what to replace char with.
+    // eslint-disable-next-line no-unused-vars
     getReplacement(char){
         return this.allChars[Utilities.getRandRangeInt(0, this.allChars.length)];
     }
