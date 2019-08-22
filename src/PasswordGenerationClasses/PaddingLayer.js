@@ -53,8 +53,10 @@ export default class PaddingLayer extends Layer{
         let paddingGroups = Utilities.getRandRangeInt(PADDING_MIN, PADDING_MAX);
         console.log('There are ' + paddingGroups + 'padding group(s).');
         let tempOutput = input;
-        let tempOutArr = [paddingGroups*2+1];
+        let tempOutArr = new Array(paddingGroups*2+1);
         let paddingIndexes = [];
+
+        console.log("The temp ouput array should have a length of " + (paddingGroups*2+1) + '  and has ' + tempOutArr.length);
 
         //get two indexes for padding
         for (let i = 0; i < paddingGroups; i++) {
@@ -82,6 +84,8 @@ export default class PaddingLayer extends Layer{
         
         let paddingArray = [];
         
+
+
         //generate padding
         for (let i = 0; i < paddingGroups; i++) {
             var randomize = require('randomatic');
@@ -97,33 +101,42 @@ export default class PaddingLayer extends Layer{
         console.log('Padding array: ' + paddingArray);
       
         //populate the output array, with spliters 
+        console.log("Building output array, it has " + tempOutArr.length + ' spots.');
         for (let i = tempOutArr.length -1 ; i>=0; i--) {
-            if (((i)%2)===0) {
-                tempOutArr[i] = tempOutput.split(paddingIndexes[i/2]);
+            if (((i)%2)!==0) {
+                
+                tempOutArr[i] = tempOutput;//tempOutput.slice(paddingIndexes[i/2]);
             } else {
-                tempOutArr[i] = paddingArray[(i-1)/2];
+                
+                let paddingArrayIndex = (i-1)/2;
+                paddingArrayIndex = paddingArrayIndex.clamp(0, paddingArray.length-1);
+                console.log('Padding array index is '+ paddingArrayIndex);
+                tempOutArr[i] = paddingArray[paddingArrayIndex];
             }
         }
 
         console.log("tempOutputarray " + tempOutArr);
         console.log('Output before changes: ' + tempOutput);
         for (let i = 0 ; i<tempOutArr.length; i++) {
-            if (((i)%2)===0) {
-                this.outputTuples.push(new Tuple(false,tempOutput[i],''));
+            if (((i)%2) !==0) {
+                this.outputTuples.push(new Tuple(false,tempOutput,''));
             } else {                
                 this.outputTuples.push(new Tuple(true,tempOutArr[i] , 'padded with ' + tempOutArr[i]));
 
             }
             console.log("Adding " + tempOutArr[i]);
+            
             this.output += tempOutArr[i];
         }
         console.log('Returning: ' + this.output);
-        return  this.ouput;
+
+        tempOutput = this.output;
+        return  tempOutput;
     }   
 }
 
-function spliceSplit(str, index, count, add) {
-    var ar = str.split('');
-    ar.splice(index, count, add);
-    return ar.join('');
-}
+Number.prototype.clamp = function(min, max) {
+    return Math.min(Math.max(this, min), max);
+};
+
+
