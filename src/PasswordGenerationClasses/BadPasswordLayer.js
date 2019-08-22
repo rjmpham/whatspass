@@ -18,7 +18,7 @@ export default class BadPasswordLayer extends Layer{
         
     }
 
-    getPasswordOutput(input){
+    getPasswordOutput(){
         let tempOutput = passwordList[Utilities.getRandRangeInt(0, passwordList.length)];
         let newTuple = new Tuple(true, tempOutput, 'Added word ' + tempOutput);
         this.ouput += tempOutput;
