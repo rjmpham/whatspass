@@ -51,6 +51,7 @@ export default class PaddingLayer extends Layer{
         
         this.input = input;
         let paddingGroups = Utilities.getRandRangeInt(PADDING_MIN, PADDING_MAX);
+        console.log('There are ' + paddingGroups + 'padding group(s).');
         let tempOutput = input;
         let tempOutArr = [paddingGroups*2+1];
         let paddingIndexes = [];
@@ -77,7 +78,10 @@ export default class PaddingLayer extends Layer{
 
         //start by sorting the array in reverse
         paddingIndexes = paddingIndexes.sort(function(a, b){return b-a;});
+        console.log('Padding indexes: ' + paddingIndexes);
+        
         let paddingArray = [];
+        
         //generate padding
         for (let i = 0; i < paddingGroups; i++) {
             var randomize = require('randomatic');
@@ -89,26 +93,37 @@ export default class PaddingLayer extends Layer{
             };
             paddingArray.push(randomize('*',rn(randyOptions)));
         }
-
+        
+        console.log('Padding array: ' + paddingArray);
+      
         //populate the output array, with spliters 
-        for (let i = tempOutArr.length -1 ; i=0; i--) {
-            if (((i)%2)==0) {
-                tempOutArr[i] = tempOutput.splice(paddingIndexes[i/2]);
+        for (let i = tempOutArr.length -1 ; i>=0; i--) {
+            if (((i)%2)===0) {
+                tempOutArr[i] = tempOutput.split(paddingIndexes[i/2]);
             } else {
                 tempOutArr[i] = paddingArray[(i-1)/2];
             }
         }
-        
-        for (let i = 0 ; i<tempOutArr; i++) {
-            if (((i)%2)==0) {
+
+        console.log("tempOutputarray " + tempOutArr);
+        console.log('Output before changes: ' + tempOutput);
+        for (let i = 0 ; i<tempOutArr.length; i++) {
+            if (((i)%2)===0) {
                 this.outputTuples.push(new Tuple(false,tempOutput[i],''));
             } else {                
                 this.outputTuples.push(new Tuple(true,tempOutArr[i] , 'padded with ' + tempOutArr[i]));
 
             }
+            console.log("Adding " + tempOutArr[i]);
             this.output += tempOutArr[i];
         }
+        console.log('Returning: ' + this.output);
         return  this.ouput;
     }   
 }
 
+function spliceSplit(str, index, count, add) {
+    var ar = str.split('');
+    ar.splice(index, count, add);
+    return ar.join('');
+}

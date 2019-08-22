@@ -47,7 +47,7 @@ var fullLayers = <div></div>;
 
 // eslint-disable-next-line no-unused-vars
 function DisplayBox() {
-    var [display,setDisplay] = useState('this is a password box');
+    var [display,setDisplay] = useState("Init Value");
 
 
     return(
@@ -101,9 +101,9 @@ function getLayerJSX(layers){
     </div>);
 }
 
-function PasswordGeneration(strengthParam){
-    
 
+
+function PasswordGeneration(strengthParam){
     if (strengthParam !== STRENGTH.RANDOM) {  
         let passwordGenerator =  new PasswordGenerator(strengthParam);
         var output = passwordGenerator.generateNewPassword();
