@@ -4,9 +4,7 @@ import CapitalizationLayer from './CapitalizationLayer.js';
 import TransformLayer from './TransformLayer.js';
 import PaddingLayer from './PaddingLayer.js';
 import {STRENGTH} from '../components/DisplayBox.js';
-// eslint-disable-next-line no-unused-vars
-import { loadingOverlay } from '@aws-amplify/ui';
-import { bigIntLiteral } from '@babel/types';
+import BadPasswordLayer from './BadPasswordLayer.js';
 
 
 // eslint-disable-next-line no-unused-vars
@@ -39,7 +37,7 @@ export default class PasswordGenerator{
         switch(passwordStrength){
             case STRENGTH.WEAK:
                 console.log("Setting layer list to just word selection layer.");
-                this.layersList = [new WordSelectionLayer(passwordStrength)];
+                this.layersList = [new BadPasswordLayer(passwordStrength)];
                 break;
             case STRENGTH.MEDIUM:
                 console.log("Setting layer list to word selection layer, and capitalization.");
