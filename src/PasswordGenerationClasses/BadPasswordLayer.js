@@ -5,8 +5,8 @@ import Utilities from './Utilities.js';
 import Tuple from './Tuple.js';
 
 export default class BadPasswordLayer extends Layer{
-    constructor(passwordStrength){
-        super(passwordStrength);
+    constructor(){
+        super();
         this.description = 'Chose a random bad password.';
         this.layerName  = 'Bad Password Selection Layer';
         this.blurb = 

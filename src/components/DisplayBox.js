@@ -19,6 +19,7 @@ import PasswordGenerator from '../PasswordGenerationClasses/PasswordGenerator.js
 import ShowLayerOutput from '../PasswordGenerationClasses/ShowLayerOutput.jsx';
 import './DisplayBox.css';
 
+//These are designed to correspond with zxcvbn's password strength score
 export const STRENGTH = {
     WEAK: 0, 
     MEDIUM: 3,
@@ -44,10 +45,23 @@ const defThemePlus = createMuiTheme({
 });  
 
 var fullLayers = <div></div>;
+var firstInit = true;
 
 // eslint-disable-next-line no-unused-vars
 function DisplayBox() {
-    var [display,setDisplay] = useState("Init Value");
+    let initValue = "Init Value";
+
+    var [display,setDisplay] = useState(initValue);
+    
+    if(firstInit){
+
+        firstInit = false;
+        setDisplay(PasswordGeneration(STRENGTH.MEDIUM));
+    }
+    
+
+    
+    
 
 
     return(
