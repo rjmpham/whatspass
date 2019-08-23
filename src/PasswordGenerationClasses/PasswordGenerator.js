@@ -13,6 +13,7 @@ const MAX_PASSWORD_GENERATION_ATTEMPTS = 10;
 const WEAK_LAYERS = [new BadPasswordLayer()];
 const MEDIUM_LAYERS = [new WordSelectionLayer(), new CapitalizationLayer()];
 const STRONG_LAYERS = [new WordSelectionLayer(), new TransformLayer(), new CapitalizationLayer(), new PaddingLayer()];
+const zxcvbn = require('zxcvbn');
 
 export default class PasswordGenerator{
     layersList = [];
@@ -28,7 +29,7 @@ export default class PasswordGenerator{
     constructor(passwordStrength){
         
         this.updateLayersList(passwordStrength);
-        this.zxcvbn = require('zxcvbn');
+
         this.passwordStrength = passwordStrength;
         
     }
@@ -74,7 +75,7 @@ export default class PasswordGenerator{
             if(iterationsCount > MAX_PASSWORD_GENERATION_ATTEMPTS)
                 break;
         }
-        while(this.zxcvbn(generatedPassword).score < this.passwordStrength);
+        while(zxcvbn(generatedPassword).score < this.passwordStrength);
         
         this.password = generatedPassword;
        
