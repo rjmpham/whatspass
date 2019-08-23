@@ -12,8 +12,8 @@ const PAD_STRONG_MIN = 1;
 export default class PaddingLayer extends Layer{
     strength = null;
     
-    constructor(passwordStrength){
-        super(passwordStrength);
+    constructor(){
+        super();
         this.description = 'Pad the password with a random string of characters.';
         this.layerName = 'Pad Random Chars';
         this.blurb = 
