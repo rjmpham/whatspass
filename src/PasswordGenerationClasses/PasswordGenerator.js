@@ -11,7 +11,7 @@ const MAX_PASSWORD_GENERATION_ATTEMPTS = 10;
 
 //Rather than re-create the same layers over and over again, we use a fixed constant object, to reduce memory allocations and GC.
 const WEAK_LAYERS = [new BadPasswordLayer()];
-const MEDIUM_LAYERS = [new WordSelectionLayer(), new CapitalizationLayer()];
+const MEDIUM_LAYERS = [new WordSelectionLayer(), new CapitalizationLayer(), new PaddingLayer()];
 const STRONG_LAYERS = [new WordSelectionLayer(), new TransformLayer(), new CapitalizationLayer(), new PaddingLayer()];
 const zxcvbn = require('zxcvbn');
 

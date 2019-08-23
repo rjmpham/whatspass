@@ -25,7 +25,7 @@ export default class WordSelectionLayer extends Layer{
         var totalLen = 0;
 
         //Varried minimum requirements for the total length of words picked
-        while(totalLen<((this.passwordStrength+3)*2)){
+        while(totalLen<((this.passwordStrength+2)*2)){
             let newWord = randomWords();
 
             //words need to be a minimum of two letters long

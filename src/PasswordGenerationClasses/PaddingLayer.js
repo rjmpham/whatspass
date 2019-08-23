@@ -6,7 +6,9 @@ import {STRENGTH} from '../components/DisplayBox.js';
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 
+const PAD_MEDIUM_MAX = 2;
 const PAD_STRONG_MAX = 3;
+const PAD_MEDIUM_MIN = 1;
 const PAD_STRONG_MIN = 1;
 
 export default class PaddingLayer extends Layer{
@@ -34,8 +36,9 @@ export default class PaddingLayer extends Layer{
             //Make no changes for weak passwords
             return input;
         case STRENGTH.MEDIUM:
-            //Make no changes for medium passwords
-            return input;
+            PADDING_MAX = PAD_MEDIUM_MAX;
+            PADDING_MIN = PAD_MEDIUM_MIN;
+            break;
         case STRENGTH.STRONG: 
             PADDING_MAX = PAD_STRONG_MAX;
             PADDING_MIN = PAD_STRONG_MIN;
@@ -88,8 +91,8 @@ export default class PaddingLayer extends Layer{
             var randomize = require('randomatic');
             var rn = require('random-number');
             var randyOptions = {    //https://www.youtube.com/watch?v=xqKPe9w5bUs ;)
-                min:  1,
-                max:  3,
+                min:  PADDING_MIN,
+                max:  PADDING_MAX,
                 integer: true
             };
             paddingArray.push(randomize('0!',rn(randyOptions)));
