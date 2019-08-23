@@ -48,7 +48,11 @@ export default class PasswordGenerator{
             this.layersList = STRONG_LAYERS;
             break;
         }
-        this.layersList.forEach( layer => layer.passwordStrength = passwordStrength);
+        this.layersList.forEach( (layer) => {
+            layer.reset();
+            layer.passwordStrength = passwordStrength;
+            
+        });
     }
 
     //TODO delete wrapper
@@ -80,7 +84,7 @@ export default class PasswordGenerator{
         
         this.password = generatedPassword;
        
-        console.log('Generated password: ' + generatedPassword);
+        console.log('Generated password: ' + generatedPassword + ' in ' + iterationsCount + ' iterations.');
         this.password = generatedPassword;
         return generatedPassword;
     }

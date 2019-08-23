@@ -13,6 +13,7 @@ export default class Layer{
     reset(){
         this.input = '';
         this.output = '';
+        this.outputTuples = [];
     }
 
 }
