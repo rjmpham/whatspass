@@ -12,7 +12,8 @@ export default class WordSelectionLayer extends Layer{
         this.layerName = 'Select Random Words';
         this.blurb = 
         <p>
-            Funny thing about this eh.
+            Choose some random, unrelated words. This is the most basic part of 
+            making a password.
         </p>
         ; 
         

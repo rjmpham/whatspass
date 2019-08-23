@@ -110,6 +110,8 @@ table {
     justify-content: center;
 }
 .StyleLayerBlurb {
+    line-height: 1.5;
+    text-align: justify;
     margin-left: 15%;
     margin-right: 15%;
 }

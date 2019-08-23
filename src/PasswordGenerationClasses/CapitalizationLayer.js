@@ -12,7 +12,10 @@ export default class CapitalizationLayer extends LetterModificationLayer{
         this.layerName = 'Add Capitaliztion';
         this.blurb=
         <p>
-            what a wonderful world
+            Randomly replace some lowercase letters with the capitalized version.
+            You'll be able to remember these pretty easily once you start using a
+            password with a few letters capitalized. These are important as passwords
+            with all lowercase letters are much easier guessed by a computer.
         </p>
         ;
         

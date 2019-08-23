@@ -49,7 +49,7 @@ var firstInit = true;
 
 // eslint-disable-next-line no-unused-vars
 function DisplayBox() {
-    let initValue = "Init Value";
+    let initValue = 'Init Value';
 
     var [display,setDisplay] = useState(initValue);
     
@@ -133,9 +133,10 @@ function PasswordGeneration(strengthParam){
                     Weak passwords are passwords made commonly by people. These 
                     include many infamous ones. Take a second to browse some of the 
                     weak passwords and consider the reasons for why they are weak in
-                    this section. 
-                    Below this section you will find our generic information regarding the anatomy
-                    of passwords, disclaimers, and recommendations. 
+                    this section. The weak sample password was chosen from a list of 
+                    commonly used passwords. Take a look at some stronger passwords 
+                    or read below for some of our thoughts on the anatomy or passwords, 
+                    our disclaimers, and recommendations.
                 </p>
                 {getLayerJSX(layers)}
             </div>; 
@@ -145,13 +146,13 @@ function PasswordGeneration(strengthParam){
             <div>                
                 <p className="StyleLayerExplain">
                     Medium passwords come from a little consideration for websites 
-                    requiring passwords with one or two requirements.
-                    you can see the steps taken to generate the password.
+                    requiring passwords with one or two requirements like have a 
+                    number, have an uppercase letter. We've generated a sample medium 
+                    strength password in a few steps.               
                     The steps are noted with large text, and the changes in each step
-                    are coloured in green. Take a second to read and consider our 
-                    thoughts on medium passwords. 
-                    Below this section you will find our generic information regarding the anatomy
-                    of passwords, disclaimers, and recommendations. 
+                    are coloured in green. 
+                    Below this section you will find our generic information regarding 
+                    the anatomy of passwords, disclaimers, and recommendations. 
                 </p>
                 {getLayerJSX(layers)}
             </div>;         break;
@@ -159,13 +160,13 @@ function PasswordGeneration(strengthParam){
         fullLayers = 
             <div>                
                 <p className="StyleLayerExplain">
-                A majority of this page is dedicated to strong passwords, and below
-                you can see the steps taken to generate the password you see above.
-                The steps are noted with large text, and the changes in each step
-                are coloured in green. 
-                Take a second to read and consider our thoughts on strong passwords. 
-                Below this section you will find our generic information regarding the anatomy
-                of passwords, disclaimers, and recommendations. 
+                    Strong passwords are the main point of having passwords! We've 
+                    generated a sample strong password in a few steps. 
+                    The steps are noted with large text, and the changes in each step
+                    are coloured in green. 
+                    Take a second to read and consider each part of the strong password. 
+                    Below this section you will find our generic information regarding 
+                    the anatomy of passwords, disclaimers, and recommendations. 
                 </p>
                 {getLayerJSX(layers)}
             </div>;         break;
@@ -183,12 +184,13 @@ function PasswordGeneration(strengthParam){
             <p className="StyleLayerExplain">
                     Totally random passwords have a time and place. They are diffirent
                     from other types of passwords in that they are entirely generated 
-                    by computers and algorithms. They are harder to remember, but are
-                    almost always stronger than other passwords of the same length. We 
-                    recomend that you use a password manager to manage random passwords,
-                    but a strong password that is not totally random can be achieved by 
-                    having more charachters. In the next section you will find our 
-                    generic information regarding the anatomy of passwords, disclaimers, and recommendations. 
+                    by computers or algorithms or both. They are harder to remember, but are
+                    almost always stronger than other passwords of the same length. A password 
+                    manager can manage random passwords and we highly recommend that you use one. If
+                    you want to memorize a not totally random but strong password the old fasion way, 
+                    you can make a longer password and make a few random changes that you can remember.
+                    In the next section you will find our generic information regarding the anatomy 
+                    of passwords, disclaimers, and recommendations. 
             </p>
         </div>;
         break;

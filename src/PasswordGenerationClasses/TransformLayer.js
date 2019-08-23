@@ -16,7 +16,11 @@ export default class TransformLayer extends LetterModificationLayer{
         this.layerName  = 'Add Random Elements';
         this.blurb = 
         <p>
-            ppppplaceholder
+                Replaces random characters in the password. Having words in your password 
+                isn't the most secure if they are common. Replacing one or two characters
+                will increase the strength of the passwords. While a bit harder to remember,
+                once you read out the original words a few times you can remember the 
+                random changes fairly easily. 
         </p>
         ;
         

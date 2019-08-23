@@ -20,7 +20,12 @@ export default class PaddingLayer extends Layer{
         this.layerName = 'Pad Random Chars';
         this.blurb = 
         <p>
-            This is a placeholder
+            Pad the password with a random string of characters. Most of the time, sites
+            require that you have some numbers or special character. A few characters are 
+            important as they give computers a hard time guessing your password. Normally 
+            people append these at the end of their passwords, using common numbers and symbols
+            like 1 or !. We opt to put it anywhere and use more varied characters.
+            
         </p>
         ; 
     }

@@ -21,7 +21,7 @@ function GenerateResultJSX(layer){
             <div className="StyleLayerOutput">        
                 {tupleList.map( (x, index)=> TupleToJSX(x, index))}
             </div>
-            <div className="StyleLayerBlurb">{layer.description}</div>
+            <div className="StyleLayerBlurb">{layer.blurb}</div>
         </div>);
 
 }

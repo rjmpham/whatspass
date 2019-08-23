@@ -8,7 +8,7 @@ export default class BadPasswordLayer extends Layer{
     constructor(){
         super();
         this.description = 'Chose a random bad password.';
-        this.layerName  = 'Bad Password Selection Layer';
+        this.layerName  = '';
         this.blurb = 
         <p>
             This password provides no security, and should not be used under any circumstances.
@@ -20,9 +20,9 @@ export default class BadPasswordLayer extends Layer{
 
     getPasswordOutput(){
         let tempOutput = passwordList[Utilities.getRandRangeInt(0, passwordList.length)];
-        let newTuple = new Tuple(true, tempOutput, 'Added word ' + tempOutput);
+        //let newTuple = new Tuple(true, tempOutput, 'Added word ' + tempOutput);
         this.ouput += tempOutput;
-        this.outputTuples.push(newTuple);
+        //this.outputTuples.push(newTuple);
         return tempOutput;
     }
 
