@@ -7,15 +7,16 @@ import {STRENGTH} from '../components/DisplayBox.js';
 import BadPasswordLayer from './BadPasswordLayer.js';
 
 
-// eslint-disable-next-line no-unused-vars
 const MAX_PASSWORD_GENERATION_ATTEMPTS = 10;
+
+//Rather than re-create the same layers over and over again, we use a fixed constant object, to reduce memory allocations and GC.
 const WEAK_LAYERS = [new BadPasswordLayer()];
 const MEDIUM_LAYERS = [new WordSelectionLayer(), new CapitalizationLayer()];
 const STRONG_LAYERS = [new WordSelectionLayer(), new TransformLayer(), new CapitalizationLayer(), new PaddingLayer()];
 
 export default class PasswordGenerator{
     layersList = [];
-    password = 'null';
+    password = '_passwordUninitState';
 
     wordSelectionLayer;
     capitalizationLayer;
@@ -48,16 +49,9 @@ export default class PasswordGenerator{
             this.layersList = STRONG_LAYERS;
             break;
         }
-        this.layersList.forEach( (layer) => {
-            layer.reset();
-            layer.passwordStrength = passwordStrength;
-            
-        });
-    }
-
-    //TODO delete wrapper
-    addLayer(newLayer){
-        this.layersList.push(newLayer);
+        
+        //update each layer so that it generates at the target password strength
+        this.layersList.forEach( layer => layer.passwordStrength = passwordStrength);
     }
 
     generateNewPassword(){
@@ -70,7 +64,7 @@ export default class PasswordGenerator{
             //pass each layer's output to the next
             generatedPassword = '';
             this.layersList.forEach(_layer => {
-                _layer.reset();
+                _layer.reset();     
                 generatedPassword = _layer.getPasswordOutput(generatedPassword);
     
             });
