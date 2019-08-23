@@ -4,6 +4,7 @@ import React from 'react';
 
 export default class CapitalizationLayer extends LetterModificationLayer{
     strength = null;
+    MAX_CHANGES = 2;
     
     constructor(passwordStrength){
         super(passwordStrength);

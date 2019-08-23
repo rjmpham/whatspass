@@ -5,14 +5,12 @@ import Tuple from './Tuple.js';
 import {STRENGTH} from '../components/DisplayBox.js';
 
 const MAX_ITERATIONS = 100; //the maxiumum number of iterations that getPasswordOutput can use when attempting to generate a usable index.
-const MAX_WEAK_CHANGES = 1;
-const MAX_MEDIUM_CHANGES = 3;
-const MAX_STRONG_CHANGES = 4;
+
 
 export default class LetterModificationLayer extends Layer{
     
     allChars = [];
-
+    MAX_CHANGES = 1;
     //This method should overridden by class that extends the this layer.
     //This is used to determine what letter to replace char with.
     //Called in getPasswordOutput(input)
@@ -23,30 +21,12 @@ export default class LetterModificationLayer extends Layer{
 
     //input is a string that is some words. Here we randomly replace characters with others.
     getPasswordOutput(input){
-        let MAX_CHANGES = 0;
-        
-        //set the maximum number of changes based on constants.
-        switch(this.passwordStrength){
-        case STRENGTH.WEAK:
-            MAX_CHANGES = MAX_WEAK_CHANGES;
-            break;
-        case STRENGTH.MEDIUM:
-            MAX_CHANGES = MAX_MEDIUM_CHANGES;
-            break;
-        case STRENGTH.STRONG: 
-            MAX_CHANGES = MAX_STRONG_CHANGES;
-            break;
-        default:
-            MAX_CHANGES = MAX_STRONG_CHANGES;
-            break;
-        }
         
 
         this.input = input;
-        let numberOfChanges = Utilities.getRandRangeInt(1, MAX_CHANGES);
         let tempOutput = input;
         let changedIndexes = [];
-        for(let i = 0; i < numberOfChanges; i++){
+        for(let i = 0; i < this.MAX_CHANGES; i++){
             //foreach each change needed, choose a random index, and replace the tempOutput[randomIndex] with the replacement.
 
             let randIndex;
