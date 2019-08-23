@@ -19,7 +19,7 @@ export default class WordSelectionLayer extends Layer{
     }
 
     // eslint-disable-next-line no-unused-vars
-    getPasswordOutput(input){
+    getPasswordOutput(){
         this.ouput = '';
         var randomWords = require('random-words');
         var totalLen = 0;
