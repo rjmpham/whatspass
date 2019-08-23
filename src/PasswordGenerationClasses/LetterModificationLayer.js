@@ -2,7 +2,6 @@
 import Layer from './Layer.js';
 import Utilities from './Utilities.js';
 import Tuple from './Tuple.js';
-import {STRENGTH} from '../components/DisplayBox.js';
 
 const MAX_ITERATIONS = 100; //the maxiumum number of iterations that getPasswordOutput can use when attempting to generate a usable index.
 

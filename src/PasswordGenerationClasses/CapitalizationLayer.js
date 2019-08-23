@@ -6,8 +6,8 @@ export default class CapitalizationLayer extends LetterModificationLayer{
     strength = null;
     MAX_CHANGES = 2;
     
-    constructor(passwordStrength){
-        super(passwordStrength);
+    constructor(){
+        super();
         this.description = 'Randomly replace some lowercase letters with the capitalized version.';
         this.layerName = 'Add Capitaliztion';
         this.blurb=

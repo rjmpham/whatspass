@@ -9,10 +9,6 @@ export default class Layer{
 
     passwordStrength = null;    //this should be the enum defined in DisplayBox.js
    
-    constructor(passwordStrength){
-        this.passwordStrength = passwordStrength;
-    }
-
     //Resets the input and ouput variables, so that the Layer is at its original state.
     reset(){
         this.input = '';

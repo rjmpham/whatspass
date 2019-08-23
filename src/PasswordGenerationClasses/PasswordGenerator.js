@@ -9,6 +9,9 @@ import BadPasswordLayer from './BadPasswordLayer.js';
 
 // eslint-disable-next-line no-unused-vars
 const MAX_PASSWORD_GENERATION_ATTEMPTS = 10;
+const WEAK_LAYERS = [new BadPasswordLayer()];
+const MEDIUM_LAYERS = [new WordSelectionLayer(), new CapitalizationLayer()];
+const STRONG_LAYERS = [new WordSelectionLayer(), new TransformLayer(), new CapitalizationLayer(), new PaddingLayer()];
 
 export default class PasswordGenerator{
     layersList = [];
@@ -18,41 +21,34 @@ export default class PasswordGenerator{
     capitalizationLayer;
     transformLayer;
     paddingLayer;
+    zxcvbn;
+    passwordStrength;
 
     constructor(passwordStrength){
         
         this.updateLayersList(passwordStrength);
-        
-        
+        this.zxcvbn = require('zxcvbn');
+        this.passwordStrength = passwordStrength;
         
     }
 
     updateLayersList(passwordStrength){
-        console.log("Password Strength passed is " + passwordStrength);
-        console.log(STRENGTH.WEAK);
-        console.log(STRENGTH.MEDIUM);
-        console.log(STRENGTH.STRONG);
-        console.log(STRENGTH);
 
         switch(passwordStrength){
-            case STRENGTH.WEAK:
-                console.log("Setting layer list to just word selection layer.");
-                this.layersList = [new BadPasswordLayer(passwordStrength)];
-                break;
-            case STRENGTH.MEDIUM:
-                console.log("Setting layer list to word selection layer, and capitalization.");
-                this.layersList = [new WordSelectionLayer(passwordStrength), new CapitalizationLayer(passwordStrength)];
-                break;
-            case STRENGTH.STRONG:
-                    console.log("Setting layer list to every layer.");
-                this.layersList = [new WordSelectionLayer(passwordStrength), new TransformLayer(passwordStrength), new CapitalizationLayer(passwordStrength), new PaddingLayer(passwordStrength)];
-                break;
-            default:
-                console.log("Defaulting to every layer.");
-                this.layersList = [new WordSelectionLayer(passwordStrength), new TransformLayer(passwordStrength), new CapitalizationLayer(passwordStrength), new PaddingLayer(passwordStrength)];
-                break;
+        case STRENGTH.WEAK:
+            this.layersList = WEAK_LAYERS;
+            break;
+        case STRENGTH.MEDIUM:
+            this.layersList = MEDIUM_LAYERS;
+            break;
+        case STRENGTH.STRONG:
+            this.layersList = STRONG_LAYERS;
+            break;
+        default:
+            this.layersList = STRONG_LAYERS;
+            break;
         }
-        console.log("Updating layers list. There are now " + this.layersList.length + " layers.");
+        this.layersList.forEach( layer => layer.passwordStrength = passwordStrength);
     }
 
     //TODO delete wrapper
@@ -60,58 +56,33 @@ export default class PasswordGenerator{
         this.layersList.push(newLayer);
     }
 
-    generateNewPassword(passwordStrength){
+    generateNewPassword(){
         
-       
-        // var generateUncheckedPassword = function(layersList){
-            
-        // };
-
-
-        let layerOuput =''; 
+        let generatedPassword; 
+        let iterationsCount = 0;
+        
+        //Until zxcvbn tells use that we have generated a good enough password, keep generating new ones
+        do{
+            //pass each layer's output to the next
+            generatedPassword = '';
+            this.layersList.forEach(_layer => {
+                _layer.reset();
+                generatedPassword = _layer.getPasswordOutput(generatedPassword);
     
-        this.layersList.forEach(_layer => {
-            _layer.reset();
-            layerOuput = _layer.getPasswordOutput(layerOuput);
-
-        });
-           
-
-        //var zxcvbn = require('zxcvbn');
-        // let iterations = 0;
-        // do{
+            });
             
-        //     var generatedPassword = generateUncheckedPassword();
-        //     var result = zxcvbn(generatedPassword);
-        //     iterations++;
-        // }
-        // while(result.score < this.passwordStrength && iterations < MAX_PASSWORD_GENERATION_ATTEMPTS );
+            //In order to prevent infinite loops, we limit the max attempts. In most cases, a good enough password will be generated in 1-2 attempts.
+            iterationsCount++;
+            if(iterationsCount > MAX_PASSWORD_GENERATION_ATTEMPTS)
+                break;
+        }
+        while(this.zxcvbn(generatedPassword).score < this.passwordStrength);
         
-        // if(iterations >= MAX_PASSWORD_GENERATION_ATTEMPTS)
-        //     console.error('Unable to generate good enough password in ' + MAX_PASSWORD_GENERATION_ATTEMPTS + ' attempts.');
-       
-       
-
-        let generatedPassword = layerOuput; //generateUncheckedPassword(this.layersList);
         this.password = generatedPassword;
        
         console.log('Generated password: ' + generatedPassword);
-
-        console.log('Layers is: ' + this.layersList);
+        this.password = generatedPassword;
         return generatedPassword;
     }
-
-
-    getPassword(){
-        return this.password;
-    }
-
-    getLayers(){
-        return this.layersList;
-    }
-
-    
-
-  
 
 }
