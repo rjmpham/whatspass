@@ -146,12 +146,12 @@ function PasswordGeneration(strengthParam){
             <div>                
                 <p className="StyleLayerExplain">
                     Medium passwords come from a little consideration for websites 
-                    requiring passwords with one or two requirements like have a 
+                    requiring passwords with one or two requirements like having a 
                     number, have an uppercase letter. We've generated a sample medium 
                     strength password in a few steps.               
                     The steps are noted with large text, and the changes in each step
                     are coloured in green. 
-                    Below this section you will find our generic information regarding 
+                    Below this section, you will find our generic information regarding 
                     the anatomy of passwords, disclaimers, and recommendations. 
                 </p>
                 {getLayerJSX(layers)}
@@ -165,7 +165,7 @@ function PasswordGeneration(strengthParam){
                     The steps are noted with large text, and the changes in each step
                     are coloured in green. 
                     Take a second to read and consider each part of the strong password. 
-                    Below this section you will find our generic information regarding 
+                    Below this section, you will find our generic information regarding 
                     the anatomy of passwords, disclaimers, and recommendations. 
                 </p>
                 {getLayerJSX(layers)}
