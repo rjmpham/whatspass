@@ -13,7 +13,7 @@ export default class TransformLayer extends LetterModificationLayer{
     constructor(){
         super();
         this.description = 'Replaces random characters in the password.';
-        this.layerName  = 'Add Random Elements';
+        this.layerName  = 'Change Random Characters';
         this.blurb = 
         <p>
                 Replaces random characters in the password. Having words in your password 

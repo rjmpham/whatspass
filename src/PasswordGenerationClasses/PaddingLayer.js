@@ -9,7 +9,7 @@ import React from 'react';
 const PAD_MEDIUM_MAX = 2;
 const PAD_STRONG_MAX = 3;
 const PAD_MEDIUM_MIN = 1;
-const PAD_STRONG_MIN = 1;
+const PAD_STRONG_MIN = 2;
 
 export default class PaddingLayer extends Layer{
     strength = null;
@@ -17,7 +17,7 @@ export default class PaddingLayer extends Layer{
     constructor(){
         super();
         this.description = 'Pad the password with a random string of characters.';
-        this.layerName = 'Pad Random Chars';
+        this.layerName = 'Pad Random Characters';
         this.blurb = 
         <p>
             Pad the password with a random string of characters. Most of the time, sites
@@ -100,7 +100,12 @@ export default class PaddingLayer extends Layer{
                 max:  PADDING_MAX,
                 integer: true
             };
-            paddingArray.push(randomize('0!',rn(randyOptions)));
+            if(i==0){
+                paddingArray.push(randomize('0',rn(randyOptions)));
+            }else { 
+                paddingArray.push(randomize('0!',rn(randyOptions)));
+
+            }
         }
         
         console.log('Padding array: ' + paddingArray[0]+ ' '+ paddingArray[1]+ ' '+ paddingArray[2]);
