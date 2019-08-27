@@ -61,6 +61,7 @@ export default class PasswordGenerator{
         let iterationsCount = 0;
         
         //Until zxcvbn tells use that we have generated a good enough password, keep generating new ones
+        //Apparently this function is in a loop and we should fix that. TODO
         do{
             //pass each layer's output to the next
             generatedPassword = '';

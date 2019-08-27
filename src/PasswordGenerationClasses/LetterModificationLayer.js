@@ -105,7 +105,6 @@ export default class LetterModificationLayer extends Layer{
                 let unchanged = tempOutput.slice(unchangedIndex,randIndex);
                 console.log('Unchanged = ' + unchanged + ' from ' + unchangedIndex + ' to ' + randIndex);
                 
-                //TODO is this supposed to be Tuple(false, '', unchanged) ??
                 this.outputTuples.push(new Tuple(false, unchanged, ''));
             }
             

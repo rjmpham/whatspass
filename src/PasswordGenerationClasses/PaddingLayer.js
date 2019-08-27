@@ -100,7 +100,7 @@ export default class PaddingLayer extends Layer{
                 max:  PADDING_MAX,
                 integer: true
             };
-            if(i==0){
+            if(i===0){
                 paddingArray.push(randomize('0',rn(randyOptions)));
             }else { 
                 paddingArray.push(randomize('0!',rn(randyOptions)));
@@ -114,7 +114,7 @@ export default class PaddingLayer extends Layer{
         console.log('Building output array, it has ' + tempOutArr.length + ' spots.');
         for (let i = tempOutArr.length -1 ; i>=0; i--) {
             let sliceTemp = tempOutput;
-            if ( ((i)%2) == 0 ) {
+            if ( ((i)%2) === 0 ) {
                 if (i === tempOutArr.length-1) {
                     tempOutArr[i] = sliceTemp.slice(paddingIndexes[(i/2)-1], tempOutput.length);
                 } else if (i!==0) {
@@ -134,7 +134,7 @@ export default class PaddingLayer extends Layer{
         //console.log('tempOutputarray ' + tempOutArr);
         console.log('Output before changes: ' + tempOutput);
         for (let i = 0 ; i<tempOutArr.length; i++) {
-            if ( ((i)%2) == 0 ) {
+            if ( ((i)%2) === 0 ) {
                 this.outputTuples.push(new Tuple(false,tempOutArr[i],''));
             } else {                
                 this.outputTuples.push(new Tuple(true,tempOutArr[i] , 'padded with ' + tempOutArr[i]));

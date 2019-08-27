@@ -1,8 +1,8 @@
 import Layer from './Layer.js';
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import {passwordList} from './BadPasswordsSource.js';
 import Utilities from './Utilities.js';
-import Tuple from './Tuple.js';
 
 export default class BadPasswordLayer extends Layer{
     constructor(){
