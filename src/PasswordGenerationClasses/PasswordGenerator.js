@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-//console */
 import WordSelectionLayer from './WordSelectionLayer.js';
 import CapitalizationLayer from './CapitalizationLayer.js';
 import TransformLayer from './TransformLayer.js';
@@ -60,16 +60,16 @@ export default class PasswordGenerator{
         let generatedPassword; 
         let iterationsCount = 0;
         
+       
         //Until zxcvbn tells use that we have generated a good enough password, keep generating new ones
         //Apparently this function is in a loop and we should fix that. TODO
         do{
             //pass each layer's output to the next
             generatedPassword = '';
-            this.layersList.forEach(_layer => {
-                _layer.reset();     
-                generatedPassword = _layer.getPasswordOutput(generatedPassword);
-    
-            });
+            for(let i =0; i < this.layersList.length; i++){
+                this.layersList[i].reset();     
+                generatedPassword = this.layersList[i].getPasswordOutput(generatedPassword);
+            }
             
             //In order to prevent infinite loops, we limit the max attempts. In most cases, a good enough password will be generated in 1-2 attempts.
             iterationsCount++;
@@ -80,7 +80,7 @@ export default class PasswordGenerator{
         
         this.password = generatedPassword;
        
-        console.log('Generated password: ' + generatedPassword + ' in ' + iterationsCount + ' iterations.');
+        //console.log('Generated password: ' + generatedPassword + ' in ' + iterationsCount + ' iterations.');
         this.password = generatedPassword;
         return generatedPassword;
     }

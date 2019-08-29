@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import passDates from './images/passDates.jpg';
-import passDatesTable from './images/table6Dates.png';
+// import passDates from './images/passDates.jpg';
+// import passDatesTable from './images/table6Dates.png';
 // eslint-disable-next-line no-unused-vars
 import Divider from '@material-ui/core/Divider';
 import Images from './Images.js';
@@ -29,12 +29,12 @@ export function Content(){
                         paper</a> on
                     password meters: 
                 </p>
-                <view className="Quote">
+                <div className="Quote">
                     <blockquote>Participants who saw stringent (strength) meters spent longer
                         creating their password and were more likely to change
                         their password while entering it.
                     </blockquote>
-                </view>
+                </div>
 
                 <p> What does it mean to be less random? If you think about it, an
                     attacker would then know that they need to look to check only passwords

@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-//console */
 import Layer from './Layer.js';
 import Utilities from './Utilities.js';
 import Tuple from './Tuple.js';
@@ -56,12 +56,12 @@ export default class PaddingLayer extends Layer{
         
         this.input = input;
         let paddingGroups = Utilities.getRandRangeInt(PADDING_MIN, PADDING_MAX);
-        console.log('There are ' + paddingGroups + ' padding group(s).');
+        //console.log('There are ' + paddingGroups + ' padding group(s).');
         let tempOutput = input;
         let tempOutArr = new Array(paddingGroups*2+1);
         let paddingIndexes = [];
 
-        console.log('The temp ouput array should have a length of ' + (paddingGroups*2+1) + '  and has ' + tempOutArr.length);
+        //console.log('The temp ouput array should have a length of ' + (paddingGroups*2+1) + '  and has ' + tempOutArr.length);
 
         //get two indexes for padding
         for (let i = 0; i < paddingGroups; i++) {
@@ -73,7 +73,7 @@ export default class PaddingLayer extends Layer{
                 randIndex = Utilities.getRandRangeInt(0, this.input.length);
                 //do not reuse indexes, try again
                 if(paddingIndexes.includes(randIndex)){
-                    console.log('Discarding ' + randIndex + ' as the index was already used.');
+                    //console.log('Discarding ' + randIndex + ' as the index was already used.');
                     foundValidIndex = false;
                 }
                    
@@ -85,7 +85,7 @@ export default class PaddingLayer extends Layer{
 
         //start by sorting the array in reverse
         paddingIndexes = paddingIndexes.sort(function(a, b){return a-b;});
-        console.log('Padding indexes: ' + paddingIndexes[0] + ' ' + paddingIndexes[1]);
+        //console.log('Padding indexes: ' + paddingIndexes[0] + ' ' + paddingIndexes[1]);
         
         let paddingArray = [];
         
@@ -108,10 +108,10 @@ export default class PaddingLayer extends Layer{
             }
         }
         
-        console.log('Padding array: ' + paddingArray[0]+ ' '+ paddingArray[1]+ ' '+ paddingArray[2]);
+        //console.log('Padding array: ' + paddingArray[0]+ ' '+ paddingArray[1]+ ' '+ paddingArray[2]);
       
         //populate the output array, spliting the input
-        console.log('Building output array, it has ' + tempOutArr.length + ' spots.');
+        //console.log('Building output array, it has ' + tempOutArr.length + ' spots.');
         for (let i = tempOutArr.length -1 ; i>=0; i--) {
             let sliceTemp = tempOutput;
             if ( ((i)%2) === 0 ) {
@@ -127,12 +127,12 @@ export default class PaddingLayer extends Layer{
                 paddingArrayIndex = paddingArrayIndex.clamp(0, paddingArray.length-1);
                 tempOutArr[i] = paddingArray[paddingArrayIndex];
             }
-            console.log( i + ' tempOutputarray ' + tempOutArr[i]);
+            //console.log( i + ' tempOutputarray ' + tempOutArr[i]);
 
         }
 
-        //console.log('tempOutputarray ' + tempOutArr);
-        console.log('Output before changes: ' + tempOutput);
+        ////console.log('tempOutputarray ' + tempOutArr);
+        //console.log('Output before changes: ' + tempOutput);
         for (let i = 0 ; i<tempOutArr.length; i++) {
             if ( ((i)%2) === 0 ) {
                 this.outputTuples.push(new Tuple(false,tempOutArr[i],''));
@@ -140,11 +140,11 @@ export default class PaddingLayer extends Layer{
                 this.outputTuples.push(new Tuple(true,tempOutArr[i] , 'padded with ' + tempOutArr[i]));
 
             }
-            //console.log('Adding ' + tempOutArr[i]);
+            ////console.log('Adding ' + tempOutArr[i]);
             
             this.output = this.output + tempOutArr[i];
         }
-        //console.log('Returning: ' + this.output);
+        ////console.log('Returning: ' + this.output);
 
         tempOutput = this.output;
         return  tempOutput;

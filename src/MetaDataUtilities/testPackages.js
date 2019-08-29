@@ -13,4 +13,4 @@ var sitemap = new _reactRouterSitemap.default(_react.default.createElement(_reac
   path: "/home"
 })).build('http://whatsinapassword.com/').save("./sitemap.xml");
 
-console.log(sitemap);
+//console.log(sitemap);
