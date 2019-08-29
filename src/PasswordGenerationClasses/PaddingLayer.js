@@ -124,7 +124,7 @@ export default class PaddingLayer extends Layer{
                 }
             } else {
                 let paddingArrayIndex = (i - 1 )/ 2; 
-                paddingArrayIndex = paddingArrayIndex.clamp(0, paddingArray.length-1);
+                paddingArrayIndex = clamp(paddingArrayIndex, 0, paddingArray.length-1);
                 tempOutArr[i] = paddingArray[paddingArrayIndex];
             }
             //console.log( i + ' tempOutputarray ' + tempOutArr[i]);
@@ -151,8 +151,8 @@ export default class PaddingLayer extends Layer{
     }   
 }
 
-Number.prototype.clamp = function(min, max) {
-    return Math.min(Math.max(this, min), max);
-};
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+}
 
 
