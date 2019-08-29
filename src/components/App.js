@@ -7,6 +7,7 @@ import './App.css';
 import DisplayBox from './DisplayBox.js';
 // eslint-disable-next-line no-unused-vars
 import Content from './Content.js';
+import {useState, useEffect} from 'react';
 // eslint-disable-next-line no-unused-vars
 import {HashRouter} from 'react-router-dom';
 import aws_exports from './aws-exports';
@@ -18,7 +19,21 @@ function App(){
         const allowTransition = window.confirm(message);
         callback(allowTransition);
     }
+
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+
+        window.addEventListener('resize', handleWindowSizeChange());      
+        // returned function will be called on component unmount 
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange());
+        };
+    }, []);
       
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth );
+    }
 
 
     return (
