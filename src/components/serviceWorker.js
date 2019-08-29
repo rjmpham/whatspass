@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-//console */
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
@@ -83,7 +83,7 @@ function registerValidSW(swUrl, config) {
                             // At this point, everything has been precached.
                             // It's the perfect time to display a
                             // "Content is cached for offline use." message.
-                            console.log('Content is cached for offline use.');
+                            //console.log('Content is cached for offline use.');
 
                             // Execute callback
                             if (config && config.onSuccess) {
@@ -95,7 +95,7 @@ function registerValidSW(swUrl, config) {
             };
         })
         .catch(error => {
-            console.error('Error during service worker registration:', error);
+            //console.error('Error during service worker registration:', error);
         });
 }
 

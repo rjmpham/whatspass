@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-//console */
 import Layer from './Layer.js';
 import Utilities from './Utilities.js';
 import Tuple from './Tuple.js';
@@ -43,7 +43,7 @@ export default class LetterModificationLayer extends Layer{
                 //Check 1:
                 //do not reuse indexes, try again
                 if(changedIndexes.includes(randIndex)){
-                    console.log('Discarding ' + randIndex + ' as the index was already used.');
+                    //console.log('Discarding ' + randIndex + ' as the index was already used.');
                     foundValidIndex = false;
                 }
                    
@@ -54,21 +54,21 @@ export default class LetterModificationLayer extends Layer{
                 //Check 2
                 //if the replacement happens to not change the tempOutput, try again.
                 if(tempOutput[randIndex] === replacement){
-                    console.log('Discarding ' + randIndex + ' as the change has no effect.');
+                    ////console.log('Discarding ' + randIndex + ' as the change has no effect.');
                     foundValidIndex = false;
                 }
                     
                 
                 //Check 3, is the target character lower case?
                 if(!this.hasLowerCase(tempOutput[randIndex] )){
-                    console.log('Discarding ' + randIndex + ' as it is not a lower case letter.');
+                    ////console.log('Discarding ' + randIndex + ' as it is not a lower case letter.');
                     foundValidIndex= false;
                 }
 
                 iterations++;
                 
                 if(iterations> MAX_ITERATIONS){
-                    console.error('Attempt to find valid index timed out.');
+                    ////console.error('Attempt to find valid index timed out.');
                     break;
                 }
                     
@@ -78,9 +78,9 @@ export default class LetterModificationLayer extends Layer{
                 continue;
             //we have chosen a valid index, track it
             changedIndexes.push(randIndex);
-            console.log(changedIndexes);
+            ////console.log(changedIndexes);
 
-            console.log('Replaced ' + tempOutput[randIndex] + ' at ' + randIndex + ' with ' + replacement );
+            ////console.log('Replaced ' + tempOutput[randIndex] + ' at ' + randIndex + ' with ' + replacement );
             
             //replace the tempOutput[randIndex] with replacement.
             tempOutput = Utilities.replaceAt(tempOutput, randIndex, replacement );
@@ -103,12 +103,12 @@ export default class LetterModificationLayer extends Layer{
             //if randIndex is different, then we have some chars that were unchanged.
             if(unchangedIndex !== randIndex){
                 let unchanged = tempOutput.slice(unchangedIndex,randIndex);
-                console.log('Unchanged = ' + unchanged + ' from ' + unchangedIndex + ' to ' + randIndex);
+                //console.log('Unchanged = ' + unchanged + ' from ' + unchangedIndex + ' to ' + randIndex);
                 
                 this.outputTuples.push(new Tuple(false, unchanged, ''));
             }
             
-            console.log('Changed : ' + tempOutput[randIndex] + ' at ' + randIndex);
+            //console.log('Changed : ' + tempOutput[randIndex] + ' at ' + randIndex);
             this.outputTuples.push(new Tuple(true, tempOutput[randIndex], 'Replaced ' + input[randIndex] + ' with ' + tempOutput[randIndex]));
             
             
@@ -118,13 +118,13 @@ export default class LetterModificationLayer extends Layer{
         if(unchangedIndex < tempOutput.length){
             if(unchangedIndex !== tempOutput.length){
                 let unchanged = tempOutput.substr(unchangedIndex,tempOutput.length);
-                console.log('Unchanged = ' + unchanged + ' from ' + unchangedIndex + ' to ' + tempOutput.length);
+                //console.log('Unchanged = ' + unchanged + ' from ' + unchangedIndex + ' to ' + tempOutput.length);
                 this.outputTuples.push(new Tuple(false, unchanged, ''));
             }
             
         }
         
-        console.log(tempOutput);
+        //console.log(tempOutput);
         this.output = tempOutput;
         return tempOutput;
 

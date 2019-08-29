@@ -8,7 +8,8 @@ import './index.css';
 import * as serviceWorker from './components/serviceWorker';
 
 
-import { BrowserRouter, Route, Link} from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
+import { BrowserRouter, Route} from 'react-router-dom';
 
 /**
  * Import components
