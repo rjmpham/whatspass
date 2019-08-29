@@ -3,10 +3,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // eslint-disable-next-line no-unused-vars
-import App from './components/App';
+
+// eslint-disable-next-line no-unused-vars
 import * as serviceWorker from './components/serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+import { BrowserRouter, Route, Link} from "react-router-dom";
+
+/**
+ * Import components
+ */
+import App from './components/App';
+import CalenderImage from './components/CalenderImage.js';
+
+
+ReactDOM.render(
+    <BrowserRouter basename= "/"> 
+        <div>
+            <Route exact path="/" component={App} />
+            <Route path="/calenderimage" component={CalenderImage} />
+        </div>
+    </BrowserRouter>
+    , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

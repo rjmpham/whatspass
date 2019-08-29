@@ -1,0 +1,15 @@
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
+import passDates from './images/passDates.jpg';
+import {Link} from 'react-router-dom';
+function CalenderImage(){
+
+    return (
+        <div> 
+            <img style = {{width: 850, height: 150 }} src={passDates} alt="password dates visual"/>
+            <Link to="/"> Home </Link>
+        </div>
+    );
+}
+
+export default CalenderImage;

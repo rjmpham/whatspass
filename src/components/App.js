@@ -7,10 +7,19 @@ import './App.css';
 import DisplayBox from './DisplayBox.js';
 // eslint-disable-next-line no-unused-vars
 import Content from './Content.js';
+// eslint-disable-next-line no-unused-vars
+import {HashRouter} from 'react-router-dom';
 import aws_exports from './aws-exports';
 
 function App(){
     Amplify.configure(aws_exports);
+
+    function getConfirmation(message, callback) {
+        const allowTransition = window.confirm(message);
+        callback(allowTransition);
+    }
+      
+
 
     return (
         
@@ -22,6 +31,7 @@ function App(){
                 <DisplayBox/>   
             </div>
             <Content/>
+            <HashRouter getUserConfirmation={getConfirmation} />
         </div>
     );
 }
