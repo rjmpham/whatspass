@@ -29,7 +29,10 @@ export function Images(){
     const isMobile = (width <= 500);
     if (isMobile){
         output.push(
-            <img style = {{width: 850, height: 150 }} src={passDates} alt="password dates visual"/>
+            null
+        );
+        output.push(
+            <img style = {{width: 300, height: 250 }} src={passDatesTable} alt="password dates table"/>
         );
     }
     else {
