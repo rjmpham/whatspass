@@ -2,12 +2,12 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import Divider from '@material-ui/core/Divider';
-import Images from './Images.js';
+import passDatesTable from './images/table6Dates.png';
+
 import './Content.css';
 
-export function Content(){
+export function ContentMobile(){
 
-    var imageArr = Images();
 
     return (
         <div className="ExplainSection">
@@ -55,7 +55,8 @@ export function Content(){
                     this <a href="http://vialab.science.uoit.ca/pwdates/2012-vizsec-visualizing-semantics-in-passwords.pdf" target="_blank" rel="noopener noreferrer">
                         paper</a> to see just how common things in the calender are used in passwords: 
                 </p>
-                {imageArr[0]}
+
+                <Link to="/calenderImage">Click me</Link>
                 <p> Annotations on this bar point out interesting patterns in numeric or mixed passwords that 
                     contain date information. Far from being random, even among dates do people pick ones that 
                     are very common, like valentines day, and christmas. The format of what a date looks like 
@@ -65,7 +66,8 @@ export function Content(){
                 
                 <div className = "TableDate">
                 
-                    {imageArr[1]}
+                    <img style = {{width: 300, height: 250 }} src={passDatesTable} alt="password dates table"/>
+
                 </div>
                 <p> These passwords come in the form listed in this table found in the apendex of 
                     the <a href="http://vialab.science.uoit.ca/pwdates/2012-vizsec-visualizing-semantics-in-passwords.pdf" target="_blank" rel="noopener noreferrer">
@@ -97,4 +99,4 @@ export function Content(){
     );
 }
 
-export default Content;
+export default ContentMobile;
