@@ -7,10 +7,11 @@ import './App.css';
 import DisplayBox from './DisplayBox.js';
 // eslint-disable-next-line no-unused-vars
 import Content from './Content.js';
-import {useState, useEffect} from 'react';
 // eslint-disable-next-line no-unused-vars
 import {HashRouter} from 'react-router-dom';
 import aws_exports from './aws-exports';
+// eslint-disable-next-line no-unused-vars
+import ContentMobile from './ContentMobile';
 
 function AppMobile(){
     Amplify.configure(aws_exports);
@@ -20,25 +21,7 @@ function AppMobile(){
         callback(allowTransition);
     }
 
-    // eslint-disable-next-line no-unused-vars
-    const [width, setWidth] = useState(window.innerWidth);
-
-    useEffect(() => {
-
-        window.addEventListener('resize', handleWindowSizeChange());      
-        // returned function will be called on component unmount 
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange());
-        };
-    }, []);
-      
-    function handleWindowSizeChange() {
-        setWidth(window.innerWidth );
-    }
-
-
     return (
-        
         <div className="MainPage">
             <div className="PasswordSection">
                 <div className="MainTitle">
@@ -46,7 +29,7 @@ function AppMobile(){
                 </div>
                 <DisplayBox/>   
             </div>
-            <Content/>
+            <ContentMobile/>
             <HashRouter getUserConfirmation={getConfirmation} />
         </div>
     );

@@ -1,9 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, {useEffect} from 'react';
 import passDates from './images/passDates.jpg';
 // eslint-disable-next-line no-unused-vars
 import {Link} from 'react-router-dom';
 function CalenderImage(){
+
+    useEffect(() => window.scrollTo(0, 0), []);
 
     return (
         <div> 

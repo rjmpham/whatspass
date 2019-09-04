@@ -24,7 +24,7 @@ ReactDOM.render(
     <BrowserRouter basename= "/"> 
         <div>
             <Route exact path="/" component={App} />
-            <Route path= "/mobile" component = {AppMobile}/>
+            <Route path= "/mobile" component={AppMobile}/>
             <Route path="/calenderimage" component={CalenderImage} />
         </div>
     </BrowserRouter>
