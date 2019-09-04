@@ -15,13 +15,16 @@ import { BrowserRouter, Route} from 'react-router-dom';
  * Import components
  */
 import App from './components/App';
+import AppMobile from './components/App';
 import CalenderImage from './components/CalenderImage.js';
+
 
 
 ReactDOM.render(
     <BrowserRouter basename= "/"> 
         <div>
             <Route exact path="/" component={App} />
+            <Route path= "/mobile" component = {AppMobile}/>
             <Route path="/calenderimage" component={CalenderImage} />
         </div>
     </BrowserRouter>

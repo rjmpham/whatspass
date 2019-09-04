@@ -9,7 +9,7 @@ function CalenderImage(){
         <div> 
             <img style = {{width: 850, height: 150 }} src={passDates} alt="password dates visual"/>
             {'\n'}
-            <Link to="/"> Home </Link>
+            <Link to="/mobile"> Home </Link>
         </div>
     );
 }

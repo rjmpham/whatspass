@@ -12,7 +12,7 @@ import {useState, useEffect} from 'react';
 import {HashRouter} from 'react-router-dom';
 import aws_exports from './aws-exports';
 
-function App(){
+function AppMobile(){
     Amplify.configure(aws_exports);
 
     function getConfirmation(message, callback) {
@@ -52,4 +52,4 @@ function App(){
     );
 }
 
-export default App;
+export default AppMobile;
