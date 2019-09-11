@@ -20,9 +20,9 @@ export function ContentMobile(){
                     and upper case letters is important to security, as using only one or 
                     the other makes a password less secure. Not using digits and symbols 
                     also makes passwords less secure. While passwords that have to have at
-                    least one of each of these are not strictly random, it is better to enforce
-                    these rules as it makes a user pick better passwords. Just look at 
-                    this quote from 
+                    least one of each of these are not strictly random, it is better to pay 
+                    attention to these rules as it makes a user pick better passwords. Just
+                    look at this quote from 
                     a <a href="https://www.archive.ece.cmu.edu/~lbauer/papers/2012/usenix2012-meters.pdf" target="_blank" rel="noopener noreferrer">
                         paper</a> on
                     password meters: 
@@ -33,17 +33,26 @@ export function ContentMobile(){
                         their password while entering it.
                     </blockquote>
                 </div>
+                {/*TODO link zxcvbn to zxcvbn*/}
+                <p> The password generator we created is checked by a password strength estimator called 
+                    'zxcvbn' that recognizes and weighs 30k common passwords, common names and surnames 
+                    according to US census data, popular English words from Wikipedia and US television 
+                    and movies, and other common patterns like dates, repeats (`aaa`), sequences 
+                    (`abcd`), keyboard patterns (`qwertyuiop`), and l33t speak. The creators of zxcvbn 
+                    point out that passwords with one of each type of symbol can still be weak
+                    like <i className="Password">P@sword1</i> so their strength estimator cares more about
+                    randomness, average number of guesses to solve, and use of uncommon words or phrases.
 
-                <p> What does it mean to be less random? If you think about it, an
-                    attacker would then know that they need to look to check only passwords
-                    that contain at least one lower case letter, an uppercase letter, digit
-                    and symbol. 
                 </p>
-                <p> Random passwords can't be remembered easily however and a password that you
-                    make isn't random. A solution is simply to make a few short remembrable 
-                    random changes to a password that you came up with! Our generator does the 
-                    leg work here however as it makes the human decision of picking remembrable
-                    words and makes the changes for you.
+
+                <p> If you strictly followed rules a sites give, an
+                    attacker knows that they need to check passwords
+                    that contain at least one lower case letter, an uppercase letter, digit
+                    and symbol. If you are too random, your password will not be remembered easily
+                    and at that point you should use a password tool, and full diclaimer, we reccomend 
+                    using one. If you want another solution, or to remember your own passwords, or
+                    are simply curious as to how passwords work, our generator does the 
+                    leg work here picking remembrable words and making some random modifications for you.
                 </p>
 
                 <h1> So Really, What's in a Password?
@@ -56,7 +65,7 @@ export function ContentMobile(){
                         paper</a> to see just how common things in the calender are used in passwords: 
                 </p>
 
-                <Link to="/calenderImage">Click me</Link>
+                <Link to="/calenderImage">Calender Image</Link>
                 <p> Annotations on this bar point out interesting patterns in numeric or mixed passwords that 
                     contain date information. Far from being random, even among dates do people pick ones that 
                     are very common, like valentines day, and christmas. The format of what a date looks like 

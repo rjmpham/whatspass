@@ -28,7 +28,7 @@ export function Images(){
       
 
     var output = [];  
-    const isMobile = (width <= 500);
+    const isMobile = (width <= 700);
     if (isMobile){
         output.push(
             <Link to="/calenderImage">Click me</Link>

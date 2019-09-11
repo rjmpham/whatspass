@@ -1,4 +1,6 @@
-
+.BadPassword{
+    font-size: 20pt;
+}
 .TitleButtonsBar {
     text-align: center;
     margin: 5%;

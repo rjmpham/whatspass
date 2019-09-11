@@ -23,7 +23,7 @@ import CalenderImage from './components/CalenderImage.js';
 ReactDOM.render(
     <BrowserRouter basename= "/"> 
         <div>
-            <Route exact path="/" component={App} />
+            <Route exact path="/" component={AppMobile} />
             <Route path= "/mobile" component={AppMobile}/>
             <Route path="/calenderimage" component={CalenderImage} />
         </div>

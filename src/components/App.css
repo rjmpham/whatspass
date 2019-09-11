@@ -51,6 +51,10 @@
     font-family:courier;
 }
 
+.BadPassword{
+    font-size: 20pt;
+}
+
 table {
     border-collapse: collapse;
     border: 1px solid black;

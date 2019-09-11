@@ -14,15 +14,15 @@ export function Content(){
             <div className="Divider"><Divider variant="middle" /></div> 
 
             <div className= "ScrollingText">
-                <h1>What is a Secure Password Anyways?</h1>
+                <h1>How Does the Generator Work?</h1>
                 <p> Secure passwords can be broken down into the following: lowercase letter,
                     uppercase letters, digits, and symbols. The distinction between lower 
                     and upper case letters is important to security, as using only one or 
                     the other makes a password less secure. Not using digits and symbols 
                     also makes passwords less secure. While passwords that have to have at
-                    least one of each of these are not strictly random, it is better to enforce
-                    these rules as it makes a user pick better passwords. Just look at 
-                    this quote from 
+                    least one of each of these are not strictly random, it is better to pay 
+                    attention to these rules as it makes a user pick better passwords. Just
+                    look at this quote from 
                     a <a href="https://www.archive.ece.cmu.edu/~lbauer/papers/2012/usenix2012-meters.pdf" target="_blank" rel="noopener noreferrer">
                         paper</a> on
                     password meters: 
@@ -33,17 +33,37 @@ export function Content(){
                         their password while entering it.
                     </blockquote>
                 </div>
+                {/*TODO link zxcvbn to zxcvbn*/}
 
-                <p> What does it mean to be less random? If you think about it, an
-                    attacker would then know that they need to look to check only passwords
+                <p> If you strictly followed rules a sites give, an
+                    attacker knows that they need to check passwords
                     that contain at least one lower case letter, an uppercase letter, digit
-                    and symbol. 
+                    and symbol. If you are too random, your password will not be remembered easily
+                    and at that point you should use a password tool, and full diclaimer, we reccomend 
+                    using one. If you want another solution, or to remember your own passwords, or
+                    are simply curious as to how passwords work, our generator does the 
+                    leg work here picking remembrable words and making some random modifications for you.
                 </p>
-                <p> Random passwords can't be remembered easily however and a password that you
-                    make isn't random. A solution is simply to make a few short remembrable 
-                    random changes to a password that you came up with! Our generator does the 
-                    leg work here however as it makes the human decision of picking remembrable
-                    words and makes the changes for you.
+
+                <p> The password generatred is then checked by a password strength estimator called 
+                    'zxcvbn' that recognizes and weighs 30k common passwords, common names and surnames 
+                    according to US census data, popular English words from Wikipedia and US television 
+                    and movies, and other common patterns like dates, repeats (`aaa`), sequences 
+                    (`abcd`), keyboard patterns (`qwertyuiop`), and l33t speak. The creators of zxcvbn 
+                    point out that passwords with one of each type of symbol can still be weak
+                    like <i className="Password">P@sword1</i> so their strength estimator cares more about
+                    randomness, average number of guesses to solve, and use of uncommon words or phrases.
+                </p>
+
+                <p> A strong password would take ten to the ten guesses to be guessed on average. Which is 
+                    a very large amount of guesses, and that is a lowerbound. To to answer the question
+                    how does out generator work, it uses a random word selector to make a easy to 
+                    remember a password, and then uses the quality assurance of zxcvbn to generate a 
+                    password. The rest of the site is devoted to explaining some interesting facts about
+                    what's in a password.
+
+
+
                 </p>
 
                 <h1> So Really, What's in a Password?

@@ -10,9 +10,9 @@ export default class BadPasswordLayer extends Layer{
         this.description = 'Chose a random bad password.';
         this.layerName  = '';
         this.blurb = 
-        <p>
+        <h3 classname = 'BadPassword'>
             This password provides no security, and should not be used under any circumstances.
-        </p>
+        </h3>
         ;
         
         
