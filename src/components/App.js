@@ -10,7 +10,7 @@ import Content from './Content.js';
 import {useState, useEffect} from 'react';
 // eslint-disable-next-line no-unused-vars
 import {HashRouter} from 'react-router-dom';
-import aws_exports from './aws-exports';
+import aws_exports from '../aws-exports';
 
 function App(){
     Amplify.configure(aws_exports);

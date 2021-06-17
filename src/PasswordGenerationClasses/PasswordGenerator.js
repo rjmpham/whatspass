@@ -1,4 +1,3 @@
-/* eslint-disable no-//console */
 import WordSelectionLayer from './WordSelectionLayer.js';
 import CapitalizationLayer from './CapitalizationLayer.js';
 import TransformLayer from './TransformLayer.js';

@@ -1,4 +1,3 @@
-/* eslint-disable no-//console */
 import Layer from './Layer.js';
 import Utilities from './Utilities.js';
 import Tuple from './Tuple.js';
