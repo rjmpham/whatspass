@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "aws-amplify": "^4.1.0",
+    "@aws-amplify/cli": "^7.6.5",
+    "aws-amplify": "^4.3.11",
     "aws-amplify-react": "^2.3.8",
     "babel-node": "0.0.1-security",
     "babel-register": "^6.26.0",
